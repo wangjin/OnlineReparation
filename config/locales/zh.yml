@@ -1,0 +1,5 @@
+# localization file for Chinese
+#
+
+zh :
+  hello: "你好"
