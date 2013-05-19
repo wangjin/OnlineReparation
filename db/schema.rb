@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20130518091651) do
     t.string   "realname",   :limit => 20
     t.string   "cellphone",  :limit => 11
     t.string   "email",      :limit => 50
-    t.string   "type",       :limit => 1
+    t.string   "usertype",   :limit => 1
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
   end

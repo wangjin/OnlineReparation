@@ -8,15 +8,19 @@ class LoginsController < ApplicationController
   end
 
 	def login
-		session[:user_id] = nil
+		session[:user] = nil
 		if request.post?
-			user=User.find(params[:username],params[:password])
+			user = User.find_by_username_and_password(params[:username], params[:password])
 			if user
-				session[:user_id] = user_id
-				redirect_to index_path
+				session[:user] = user
+				redirect_to :action => 'register'
 			else
 				flash[:notice] = "error username or password"
 			end
 		end
+	end
+
+	def register
+
 	end
 end

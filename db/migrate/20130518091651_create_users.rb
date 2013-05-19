@@ -6,9 +6,13 @@ class CreateUsers < ActiveRecord::Migration
       t.string :realname, :limit => 20
       t.string :cellphone, :limit => 11
       t.string :email, :limit => 50
-      t.string :type, :limit => 1
+      t.string :usertype, :limit => 1
 
       t.timestamps
     end
   end
+
+	def down
+		drop_table :users
+	end
 end
