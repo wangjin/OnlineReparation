@@ -1,5 +1,5 @@
 class LoginsController < ApplicationController
-  def index
+  def tologin
 		@user = User.new
 		respond_to do |format|
 			format.html
@@ -13,8 +13,9 @@ class LoginsController < ApplicationController
 			user = User.find_by_username_and_password(params[:username], params[:password])
 			if user
 				session[:user] = user
-				redirect_to :action => 'register'
+				redirect_to :controller => 'register', :action => 'toregister'
 			else
+				redirect_to :action => 'tologin'
 				flash[:notice] = "error username or password"
 			end
 		end

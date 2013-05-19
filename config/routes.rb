@@ -1,9 +1,10 @@
 OnlineReparation::Application.routes.draw do
   get "register/index"
 
-  match "/login" => "logins#index"
-	match "/tologin" => "logins#login"
-
+  match "login" => "logins#login"
+	match "tologin" => "logins#tologin"
+	match "register" => "register#register"
+	match "toregister" => "register#toregister"
 	resources :users
 
   # The priority is based upon order of creation:
