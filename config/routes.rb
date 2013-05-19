@@ -1,5 +1,7 @@
 OnlineReparation::Application.routes.draw do
 
+  get "welcome/index"
+
   resources :users
 
   match "login" => "login#login"

@@ -1,4 +1,4 @@
-class LoginsController < ApplicationController
+class LoginController < ApplicationController
   def tologin
 		@user = User.new
 		respond_to do |format|
