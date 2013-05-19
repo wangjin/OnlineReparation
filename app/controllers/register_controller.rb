@@ -12,7 +12,7 @@ class RegisterController < ApplicationController
 		user.email =	params[:email]
 		user.usertype = "2"
 		if user.save
-			redirect_to :controller => 'logins', :action => 'tologin'
+			redirect_to :controller => 'login', :action => 'tologin'
 		else
 			redirect_to :action => 'toregister'
 		end
