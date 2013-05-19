@@ -1,4 +1,6 @@
 OnlineReparation::Application.routes.draw do
+  get "register/index"
+
   match "/login" => "logins#index"
 	match "/tologin" => "logins#login"
 
