@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>OnlineReparation</title>
+		<title>Online Reparation</title>
 		<%= stylesheet_link_tag "application" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<div class="header">
-			<div class="title">
-			  网上报修平台
-			</div>
-			<div class="headermiddle">
-			   
-			</div>
-			<div class="loginfo">
-				<%= session[:user].realname %>
+		<% if session[:user] %>
+		<div class="headerlogged">
+			<div class="container">
+				<span class="blank">
+					&nbsp;
+				</span>
+					<span class="titlefont"><%= link_to 'Online Reparation', :root %></span>
+				<span class="loginfo">
+					<%= session[:user].realname %>
+				</span>
+				<span class="logbtn"><a class="registerbtn" href="/logout">注&nbsp;销</a></span>
 			</div>
 		</div>
+		<% else %>
+		<div class="headerlogout">
+			<div class="container">
+				<span class="blank">
+					&nbsp;
+				</span>
+					<span class="titlefont"><%= link_to 'Online Reparation', :root %></span>
+				<span class="blank">
+					&nbsp;
+				</span>
+				<span class="blank">
+					&nbsp;
+				</span>
+				<span class="logbtn">
+					<%= link_to '注 册', {:controller => 'register',:action => 'toregister'}, :class => 'registerbtn'%>
+					<%= link_to '登 录', {:controller => 'login',:action => 'tologin'}, :class => 'loginbtn'%>
+				</span>
+			</div>
+		</div>
+		<% end %>
 		<%= yield %>
 
 	</body>

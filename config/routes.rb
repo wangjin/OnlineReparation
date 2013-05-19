@@ -3,9 +3,10 @@ OnlineReparation::Application.routes.draw do
   get "welcome/index"
 
   resources :users
-
+  root :to => "welcome#index"
   match "login" => "login#login"
   match "tologin" => "login#tologin"
+  match "logout" => "login#logout"
   match "register" => "register#register"
   match "toregister" => "register#toregister"
 

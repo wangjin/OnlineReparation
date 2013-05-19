@@ -21,7 +21,8 @@ class LoginController < ApplicationController
 		end
 	end
 
-	def register
-
+	def logout
+	  session[:user] = nil
+	  redirect_to :root
 	end
 end
