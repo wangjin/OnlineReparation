@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  username: MyString
-  password: MyString
-  realname: MyString
-  cellphone: MyString
-  email: MyString
-  type: 
+  username: wangjin
+  password: wangjin
+  realname: 王金
+  cellphone: 13115007760
+  email: wangjin-252@hotmail.com
+  usertype: 0
 
 two:
   username: MyString
@@ -14,4 +14,4 @@ two:
   realname: MyString
   cellphone: MyString
   email: MyString
-  type: 
+  usertype: MyString
