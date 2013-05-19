@@ -15,8 +15,8 @@ class LoginController < ApplicationController
 				session[:user] = user
 				redirect_to :controller => 'register', :action => 'toregister'
 			else
-				redirect_to :action => 'tologin'
 				flash[:notice] = "error username or password"
+				redirect_to :action => 'tologin'
 			end
 		end
 	end

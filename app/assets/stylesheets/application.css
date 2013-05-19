@@ -11,7 +11,36 @@
  *= require_self
  *= require_tree .
  */
+a {
+	text-decoration: none;
+}
 
-.top {
-	align: center;
+a:visited {
+
+}
+
+body {
+	margin: 0px;
+}
+
+.header {
+	background-color: #f3f3f3;
+	background-image: linear-gradient(#f9f9f9, #f3f3f3);
+	background-repeat: repeat-x;
+	text-shadow: 0 1px 0 #fff;
+	border-bottom: 1px solid #e5e5e5;
+	vertical-align: middle;
+	height: 40px;
+}
+
+.title {
+	float:left;
+	size: 20px;
+}
+.headermiddle {
+	float: left;
+	width: 100px;
+}
+.loginfo {
+	float: left;
 }

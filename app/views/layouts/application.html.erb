@@ -2,12 +2,21 @@
 <html>
 	<head>
 		<title>OnlineReparation</title>
-		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= stylesheet_link_tag "application" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
 		<div class="header">
+			<div class="title">
+			  网上报修平台
+			</div>
+			<div class="headermiddle">
+			   
+			</div>
+			<div class="loginfo">
+				<%= session[:user].realname %>
+			</div>
 		</div>
 		<%= yield %>
 
