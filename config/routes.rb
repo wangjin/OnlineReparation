@@ -1,5 +1,7 @@
 OnlineReparation::Application.routes.draw do
 
+  get "repararion_apply/index"
+
   get "managercenter/index"
 
   get "managercenter/materials"
