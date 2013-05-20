@@ -11,26 +11,35 @@
  *= require_self
  *= require_tree .
  */
-
-a:visited {
-	color: rgb(0, 0, 0);
-}
-
-a:hover {
-	color: #4183c4;
-	text-decoration: none;
-}
-.logo {
+#logo {
 	position: relative;
 	float: left;
 	margin: 5px 10px 5px 0;
 	font-size: 25px;
 	font-weight: bold;
 }
-.loggedlogo{
+
+#logo:hover{
+	text-decoration: none;
+	color: #4183c4;
+}
+#logo:visited{
+	text-decoration: none;
+	color : rgb(0,0,0);
+}
+
+#loggedlogo{
 	position: relative;
 	float: left;
 	margin: 5px 10px 5px 0;
 	font-size: 20px;
 	font-weight: bold;
+}
+#loggedlogo:visited{
+	text-decoration: none;
+	color : rgb(0,0,0);
+}
+#loggedlogo:hover{
+	text-decoration: none;
+	color:#4183c4;
 }

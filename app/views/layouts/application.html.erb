@@ -11,7 +11,7 @@
 		<div class="header header-logged-in true">
 			<div class="container clearfix">
 
-				<%= link_to '网上报修平台', :root, :class => 'loggedlogo' %>
+				<%= link_to '网上报修平台', :root, :id => 'loggedlogo' %>
 
 				<div class="divider-vertical"></div>
 
@@ -59,7 +59,7 @@
 		<% else %>
 		<div class="header header-logged-out">
 			<div class="container clearfix">
-				<%= link_to '网上报修平台', :root,:class => 'logo' %>
+				<%= link_to '网上报修平台', :root,:id => 'logo' %>
 				<div class="header-actions">
 					<%= link_to '注 册', {:controller => 'register',:action => 'toregister'}, :class => 'button primary' %>
 					<%= link_to '登 录', {:controller => 'login',:action => 'tologin'}, :class => 'button'%>
