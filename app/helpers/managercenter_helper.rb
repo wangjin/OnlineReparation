@@ -1,0 +1,2 @@
+module ManagercenterHelper
+end

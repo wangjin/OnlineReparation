@@ -1,5 +1,15 @@
 OnlineReparation::Application.routes.draw do
 
+  get "managercenter/index"
+
+  get "managercenter/materials"
+
+  get "managercenter/accendants"
+
+  get "managercenter/messages"
+
+  get "managercenter/informations"
+
   resources :users
 
   root :to => "welcome#index"
