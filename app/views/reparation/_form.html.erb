@@ -1,0 +1,45 @@
+<table border="1" align="center">
+	<tr>
+		<td></td>
+		<td>姓名</td>
+		<td><input type="text" name="realname" value="<%= session[:user].realname %>"></td>
+		<td>手机号码</td>
+		<td><input type="text" name="cellphone" value="<%= session[:user].cellphone %>"></td>
+		<td>地址</td>
+		<td><input type="text" name="address" value="<%= session[:user].location %>"></td>
+		<td><a id="showdiv" href="###">重新选择地址</a></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	
+</table>
+<div id="location" style="z-index: 100;position: absolute;">
+		<select id="levelone">
+			<option>区域</option>
+			<% @locations.each do |location| %>
+			<option id ='<%= location.parentId%>' value ='<%= location.locationId%>'><%= location.locationName %></option>
+			<% end %>
+		</select><span id="leveltwo">
+			<select id="leveltwo">
+				<option>建筑物</option>
+			</select><span style="margin-left: 5px">房间号</span> 
+			<input type="text" name="roomId" style="width: 40px;height: 25px;min-height: 0px" />
+			<a href="###" id="comfirm">确定</a></span>
+	</div>

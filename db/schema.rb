@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130518091651) do
+ActiveRecord::Schema.define(:version => 20130520183551) do
+
+  create_table "locations", :force => true do |t|
+    t.integer  "parentId",     :limit => 3
+    t.integer  "locationId",   :limit => 3
+    t.string   "locationName", :limit => 15
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",   :limit => 20
@@ -22,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130518091651) do
     t.string   "usertype",   :limit => 1
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+    t.string   "location",   :limit => 50
   end
 
 end

@@ -1,6 +1,8 @@
 OnlineReparation::Application.routes.draw do
 
   get "reparation/index"
+  
+  get "reparation/sublocation"
 
   get "managercenter/index"
 
