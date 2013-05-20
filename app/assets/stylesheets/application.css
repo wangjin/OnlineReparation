@@ -17,15 +17,7 @@
 	margin: 5px 10px 5px 0;
 	font-size: 25px;
 	font-weight: bold;
-}
-
-#logo:hover{
-	text-decoration: none;
-	color: #4183c4;
-}
-#logo:visited{
-	text-decoration: none;
-	color : rgb(0,0,0);
+	color: rgb(0,0,0);
 }
 
 #loggedlogo{
@@ -34,12 +26,5 @@
 	margin: 5px 10px 5px 0;
 	font-size: 20px;
 	font-weight: bold;
-}
-#loggedlogo:visited{
-	text-decoration: none;
-	color : rgb(0,0,0);
-}
-#loggedlogo:hover{
-	text-decoration: none;
-	color:#4183c4;
+	color: rgb(0,0,0);
 }
