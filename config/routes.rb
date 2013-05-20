@@ -10,7 +10,16 @@ OnlineReparation::Application.routes.draw do
 
   get "managercenter/informations"
 
-  resources :users
+  get "membercenter/index"
+  
+  get "welcome/index"
+  
+  get "welcome/reparations"
+  
+  get "welcome/materials"
+  
+  get "welcome/suggestions"
+
 
   root :to => "welcome#index"
   match "login" => "login#login"
@@ -18,12 +27,9 @@ OnlineReparation::Application.routes.draw do
   match "logout" => "login#logout"
   match "register" => "register#register"
   match "toregister" => "register#toregister"
-  match "membercenter/index" => "membercenter#index"
-  match "welcome/index" => "welcome#index"
-  match "welcome/reparations" => "welcome#reparations"
-  match "welcome/materials" => "welcome#materials"
-  match "welcome/suggestions" => "welcome#suggestions"
 
+  resources :users
+  
 # The priority is based upon order of creation:
 # first created -> highest priority.
 
