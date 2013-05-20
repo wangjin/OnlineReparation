@@ -3,6 +3,8 @@
 	<head>
 		<title>Online Reparation</title>
 		<%= stylesheet_link_tag "application" %>
+		<%= stylesheet_link_tag "github" %>
+		<%= stylesheet_link_tag "github2" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 	</head>
@@ -13,18 +15,36 @@
 				<span class="blank"> &nbsp; </span>
 				<span><%= link_to 'Online Reparation', :root %></span>
 				<span class="logbtn">欢迎：<%= session[:user].realname %>
-					<%= link_to '个人中心', :controller => 'membercenter', :action =>  'index'%>
+					<%= link_to '个人中心', :controller => 'membercenter', :action => 'index'%>
 					<%= link_to '退出登录', {:controller => 'login',:action => 'logout'}, :class => 'logoutbtn'%> </span>
 			</div>
 		</div>
 		<% else %>
-		<div class="headerlogout">
-			<div class="container">
-				<span class="titlefont"><%= link_to 'Online Reparation', :root %></span>
-				<span class="logbtn"> <%= link_to '注 册', {:controller => 'register',:action => 'toregister'}, :class => 'registerbtn'%>
-					<%= link_to '登 录', {:controller => 'login',:action => 'tologin'}, :class => 'loginbtn'%> </span>
+		<div class="header header-logged-out">
+			<div class="container clearfix">
+				<%= link_to '网上报修平台', :root,:class => 'logo' %>
+				<div class="header-actions">
+					<%= link_to '注 册', {:controller => 'register',:action => 'toregister'}, :class => 'button primary' %>
+					<%= link_to '登 录', {:controller => 'login',:action => 'tologin'}, :class => 'button'%>
+				</div>
+
+				<!-- <div class="command-bar js-command-bar">
+
+					<ul class="top-nav">
+						<li class="explore">
+							<a href="./Explore · GitHub_files/Explore · GitHub.html">Explore</a>
+						</li>
+						<li class="features">
+							<a href="https://github.com/features">Features</a>
+						</li>
+						<li class="blog">
+							<a href="https://github.com/blog">Blog</a>
+						</li>
+					</ul>
+				</div> -->
 			</div>
 		</div>
+
 		<% end %>
 		<%= yield %>
 

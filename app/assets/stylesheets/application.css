@@ -11,9 +11,7 @@
  *= require_self
  *= require_tree .
  */
-a {
-	text-decoration: none;
-}
+
 
 a:visited {
 	color: rgb(0, 0, 0);
@@ -21,136 +19,11 @@ a:visited {
 
 a:hover {
 	color: #4183c4;
+	text-decoration: none;
 }
-
-a[href="/toregister"]:visited {
-	color: #fff;
-}
-
-a[href="/logout"]:visited {
-	color: #fff;
-}
-
-body {
-	margin: 0px;
-}
-
-.headerlogged {
-	padding: 10px 0;
-	background-color: #f3f3f3;
-	background-image: linear-gradient(#f9f9f9, #f3f3f3);
-	background-repeat: repeat-x;
-	text-shadow: 0 1px 0 #fff;
-	border-bottom: 1px solid #e5e5e5;
-	vertical-align: middle;
-}
-
-.headerlogout {
-	background: none;
-	padding: 10px 0;
-	text-shadow: 0 1px 0 #fff;
-	border-bottom: 1px solid #e5e5e5;
-	margin: 0;
-}
-
-.container {
-	width: 920px;
-	margin: 0 auto;
-	padding: 0;
-	border: 0;
-	content: ".";
-	display: block;
-	clear: both;
-}
-.blank {
-	width: 80px;
-}
-
-.titlefont {
+.logo {
+	position:relative;
+	float:left;
+	margin: 5px 10px 5px 0;
 	font-size: 25px;
 	font-weight: bold;
-}
-
-.registerbtn {
-	margin-left: 5px;
-	padding-left: 12px;
-	padding-right: 12px;
-	box-shadow: 0 1px 0 #fff;
-	outline: none;
-	position: relative;
-	display: inline-block;
-	padding: 7px 15px;
-	font-size: 13px;
-	font-weight: bold;
-	color: #fff;
-	text-shadow: 0 1px 0 rgba(255,255,255,0.9);
-	white-space: nowrap;
-	background-color: #60b044;
-	background-image: -moz-linear-gradient(#8add6d, #60b044);
-	background-image: -webkit-linear-gradient(#8add6d, #60b044);
-	background-image: linear-gradient(#8add6d, #60b044);
-	background-repeat: repeat-x;
-	border-radius: 3px;
-	border: 1px solid #ddd;
-	border-bottom-color: #c5c5c5;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-	vertical-align: middle;
-	cursor: pointer;
-}
-
-.loginbtn {
-	margin-left: 5px;
-	padding-left: 12px;
-	padding-right: 12px;
-	box-shadow: 0 1px 0 #fff;
-	outline: none;
-	position: relative;
-	display: inline-block;
-	padding: 7px 15px;
-	font-size: 13px;
-	font-weight: bold;
-	color: #333;
-	text-shadow: 0 1px 0 rgba(255,255,255,0.9);
-	white-space: nowrap;
-	background-color: #eaeaea;
-	background-image: -moz-linear-gradient(#fafafa, #eaeaea);
-	background-image: -webkit-linear-gradient(#fafafa, #eaeaea);
-	background-image: linear-gradient(#fafafa, #eaeaea);
-	background-repeat: repeat-x;
-	border-radius: 3px;
-	border: 1px solid #ddd;
-	border-bottom-color: #c5c5c5;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-	vertical-align: middle;
-	cursor: pointer;
-}
-
-.logbtn {
-	float: right;
-	font-size: 14px;
-}
-
-.logoutbtn {
-	margin-left: 5px;
-	padding-left: 12px;
-	padding-right: 12px;
-	box-shadow: 0 1px 0 #fff;
-	outline: none;
-	position: relative;
-	display: inline-block;
-	font-size: 13px;
-	font-weight: bold;
-	color: #fff;
-	text-shadow: 0 1px 0 rgba(255,255,255,0.9);
-	white-space: nowrap;
-	background-color: #60b044;
-	background-image: -moz-linear-gradient(#8add6d, #60b044);
-	background-image: -webkit-linear-gradient(#8add6d, #60b044);
-	background-image: linear-gradient(#8add6d, #60b044);
-	background-repeat: repeat-x;
-	border-radius: 3px;
-	border: 1px solid #ddd;
-	border-bottom-color: #c5c5c5;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-	cursor: pointer;
-}
