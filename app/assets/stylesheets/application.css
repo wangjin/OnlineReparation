@@ -20,7 +20,7 @@
 	color: rgb(0,0,0);
 }
 
-#loggedlogo{
+#loggedlogo {
 	position: relative;
 	float: left;
 	margin: 5px 10px 5px 0;
@@ -28,10 +28,27 @@
 	font-weight: bold;
 	color: rgb(0,0,0);
 }
-#levelone{
+#selectone {
 	height: 25px;
 }
-#leveltwo{
+#selecttwo {
 	height: 25px;
 	width: 120px;
+}
+
+#realname{
+	text-align:center;
+	min-height: 0px;
+	height: 25px;
+	width: 80px;
+}
+#cellphone {
+	text-align:center;
+	min-height: 0px;
+	height: 25px;
+	width: 100px;
+}
+#address {
+	min-height: 0px;
+	height: 25px;
 }

@@ -1,7 +1,7 @@
-<select id="leveltwo">
+<select id="selecttwo">
 	<option>建筑物</option>
 	<% @sublocations.each do |sublocation| %>
-	<option value='<%= sublocation.locationId %>'><%= sublocation.locationName%></option>
+	<option value='<%= sublocation.locationId %>|<%= sublocation.locationName%>'><%= sublocation.locationName%></option>
 	<% end %>
 </select>
-<span style="margin-left: 5px">房间号</span> <input type="text" name="roomId" style="width: 40px;height: 25px;min-height: 0px" />
+<span style="margin-left: 5px">房间号</span> <input id="roomId" type="text" name="roomId" style="width: 40px;height: 25px;min-height: 0px" /><a href="###" id="aconfirm">确定</a>
