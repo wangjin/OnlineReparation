@@ -3,7 +3,7 @@ class LoginController < ApplicationController
     @user = User.new
     respond_to do |format|
       format.html
-      format.json { render json: @user}
+      format.json { render json: @user }
     end
   end
 
@@ -13,8 +13,10 @@ class LoginController < ApplicationController
       user = User.find_by_username_and_password(params[:username], params[:password])
       if user
         session[:user] = user
-        if user.usertype.to_i < 2
+        if user.usertype.to_i < 3 # 0 超级管理员 1 后勤管理员 2 维修人员
           redirect_to :controller => 'managercenter', :action => 'index'
+        else
+          redirect_to :root
         end
       else
         flash[:notice] = "error username or password"
