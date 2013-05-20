@@ -1,23 +1,40 @@
 <%= form_tag "/login" do %>
-	<% if @user.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-			<ul>
-				<% @user.errors.full_messages.each do |msg| %>
-				<li>
-					<%= msg %>
-				</li>
-				<% end %>
-			</ul>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="site clearfix">
+	<div id="site-container" class="context-loader-container" data-pjax-container="">
+
+		<div class="auth-form" id="login">
+			<form accept-charset="UTF-8" action="https://github.com/session" method="post">
+				<div style="margin:0;padding:0;display:inline">
+					<input name="authenticity_token" type="hidden" value="D7TnZzkwr+gWLNe70njh5OJmlkeOKJepeHtMPV9AUKw=">
+				</div>
+				<div class="auth-form-header">
+					<h1>登录</h1>
+				</div>
+				<div class="auth-form-body">
+					<label for="login_field">用户名 </label>
+					<input autocapitalize="off" autofocus="autofocus" class="input-block" id="login_field" name="username" tabindex="1" type="text">
+
+					<label for="password"> 密码 <a href="https://github.com/sessions/forgot_password">(忘记密码？)</a> </label>
+					<input autocomplete="disabled" class="input-block" id="password" name="password" tabindex="2" type="password">
+
+					<input class="button" name="commit" tabindex="3" type="submit" value="登录">
+				</div>
+			</form>
 		</div>
-	<% end %>
-		<div class="field">
-			用户名：<%= text_field_tag :username	%>
-		</div>
-		<div class="field">
-			密&nbsp;&nbsp;码：<%= password_field_tag :password %>
-		</div>
-		<div class="action">
-			<%= submit_tag '登录' %>
-		</div>
+
+	</div>
+	<div class="modal-backdrop"></div>
+</div>
 <% end %>
