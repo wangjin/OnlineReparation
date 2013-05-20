@@ -10,33 +10,19 @@
 		<% if session[:user] %>
 		<div class="headerlogged">
 			<div class="container">
-				<span class="blank">
-					&nbsp;
-				</span>
-					<span class="titlefont"><%= link_to 'Online Reparation', :root %></span>
-				<span class="loginfo">
-					<%= session[:user].realname %>
-				</span>
-				<span class="logbtn"><a class="registerbtn" href="/logout">注&nbsp;销</a></span>
+				<span class="blank"> &nbsp; </span>
+				<span><%= link_to 'Online Reparation', :root %></span>
+				<span class="logbtn">欢迎：<%= session[:user].realname %>
+					<%= link_to '个人中心', :controller => 'membercenter', :action =>  'index'%>
+					<%= link_to '退出登录', {:controller => 'login',:action => 'logout'}, :class => 'logoutbtn'%> </span>
 			</div>
 		</div>
 		<% else %>
 		<div class="headerlogout">
 			<div class="container">
-				<span class="blank">
-					&nbsp;
-				</span>
-					<span class="titlefont"><%= link_to 'Online Reparation', :root %></span>
-				<span class="blank">
-					&nbsp;
-				</span>
-				<span class="blank">
-					&nbsp;
-				</span>
-				<span class="logbtn">
-					<%= link_to '注 册', {:controller => 'register',:action => 'toregister'}, :class => 'registerbtn'%>
-					<%= link_to '登 录', {:controller => 'login',:action => 'tologin'}, :class => 'loginbtn'%>
-				</span>
+				<span class="titlefont"><%= link_to 'Online Reparation', :root %></span>
+				<span class="logbtn"> <%= link_to '注 册', {:controller => 'register',:action => 'toregister'}, :class => 'registerbtn'%>
+					<%= link_to '登 录', {:controller => 'login',:action => 'tologin'}, :class => 'loginbtn'%> </span>
 			</div>
 		</div>
 		<% end %>

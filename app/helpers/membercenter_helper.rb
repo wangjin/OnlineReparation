@@ -1,0 +1,2 @@
+module MembercenterHelper
+end
