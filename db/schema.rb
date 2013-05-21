@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520183551) do
+ActiveRecord::Schema.define(:version => 20130521031603) do
 
   create_table "locations", :force => true do |t|
     t.integer  "parentId",     :limit => 3
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(:version => 20130520183551) do
     t.string   "locationName", :limit => 15
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "problems", :force => true do |t|
+    t.string   "problemType", :limit => 5
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "reparation_informations", :force => true do |t|
+    t.string   "realname",     :limit => 20
+    t.string   "cellphone",    :limit => 11
+    t.string   "location",     :limit => 50
+    t.string   "problem_desc", :limit => 100
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "users", :force => true do |t|

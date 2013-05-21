@@ -1,35 +1,40 @@
-<table align="center">
-	<tr>
-		<td>姓名</td>
-		<td><input id="realname" type="text" name="realname" value="<%= session[:user].realname %> "></td>
-		<td>手机号码</td>
-		<td><input id="cellphone" type="text" name="cellphone" value="<%= session[:user].cellphone %>"></td>
-		<td>地址</td>
-		<td><input id="address" type="text" name="address" value="<%= session[:user].location %>"></td>
-		<td><a id="showdiv" href="###">重新选择地址</a></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	
-</table>
-<div id="location" style="z-index: 100;position: absolute;background-color: rgb(255,255,255)">
+<form action="/reparation/process" method="post">
+	<intut type="hidden" name="userId" value="<%= session[:user].id %>">
+	<table align="center" style="margin-left:50px; ">
+		<tbody style="text-align: center;font-size: 13px">
+			<tr>
+				<td>姓名</td>
+				<td>
+				<input id="realname" type="text" name="realname" value="<%= session[:user].realname %> ">
+				</td>
+				<td>手机号码</td>
+				<td>
+				<input id="cellphone" type="text" name="cellphone" value="<%= session[:user].cellphone %>">
+				</td>
+				<td>地址</td>
+				<td>
+				<input id="address" type="text" name="location" value="<%= session[:user].location %>">
+				</td>
+				<td><a id="showdiv" href="###">重新选择地址</a></td>
+			</tr>
+			<tr>
+				<td>问题类别</td>
+				<td>
+				<select id="selectType" name="problemType">
+					<option>类别</option>
+					<%= @problems.each do |problem| %>
+					<option value="<%= problem.id %>"><%= problem.problemType %></option>
+					<% end %>
+				</select></td>
+				<td>问题描述</td>
+				<td colspan="3">
+				<input id="problemDesc" type="text" name="problemDecs">
+				</td>
+				<td><a href="">提交</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="location" style="z-index: 100;position: absolute;background-color: rgb(255,255,255)">
 		<select id="selectone">
 			<option>区域</option>
 			<% @locations.each do |location| %>
@@ -38,7 +43,8 @@
 		</select><span id="leveltwo">
 			<select id="selecttwo">
 				<option>建筑物</option>
-			</select><span style="margin-left: 5px">房间号</span> 
+			</select><span style="margin-left: 5px">房间号</span>
 			<input id="roomId" type="text" name="roomId" style="width: 40px;height: 25px;min-height: 0px" />
 			<a href="###" id="aconfirm">确定</a></span>
 	</div>
+</form>

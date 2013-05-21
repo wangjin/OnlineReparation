@@ -52,3 +52,12 @@
 	min-height: 0px;
 	height: 25px;
 }
+
+#problemDesc{
+	min-height: 0px;
+	height: 25px;
+	width: 343px;
+}
+#selectType {
+	height: 25px;
+}
