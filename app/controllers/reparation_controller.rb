@@ -1,5 +1,6 @@
 class ReparationController < ApplicationController
   def index
+    @reparation_information = ReparationInformation.new
     @locations = Location.find(:all, :conditions => { :parentId => -1 })
     @problems = Problem.find(:all)
     respond_to do |format|

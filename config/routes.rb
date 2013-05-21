@@ -34,7 +34,7 @@ OnlineReparation::Application.routes.draw do
   match "register" => "register#register"
   match "toregister" => "register#toregister"
 
-  resources :users
+  resources :users, :reparation_informations
   
 # The priority is based upon order of creation:
 # first created -> highest priority.
