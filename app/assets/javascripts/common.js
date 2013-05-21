@@ -1,4 +1,3 @@
-function submitForm(form,actionName){
-	form.action = actionName;
+function submitForm(form){
 	form.submit();
 }

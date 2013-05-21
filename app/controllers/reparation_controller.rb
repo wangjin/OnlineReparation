@@ -14,12 +14,7 @@ class ReparationController < ApplicationController
   end
 
   def processapply
-    reparation_information = ReparationInformation.new
-    reparation_information.realname = params[:realname]
-    reparation_information.cellphone = params[:cellphone]
-    reparation_information.location = params[:location]
-    reparation_information.problem_id = params[:problemType]
-    reparation_information.problem_desc = params[:problemDesc]
+    reparation_information = ReparationInformation.new(params[:reparation_information])
     reparation_information.save
   end
 end
