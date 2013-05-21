@@ -2,6 +2,8 @@ OnlineReparation::Application.routes.draw do
 
   get "reparation/index"
   
+  match "reparation/processapply" => "reparation#processapply"
+  
   get "reparation/sublocation"
 
   get "managercenter/index"

@@ -1,4 +1,4 @@
 class Problem < ActiveRecord::Base
   attr_accessible :problemType
-  has_one :reparation_information
+  has_many :reparation_information
 end

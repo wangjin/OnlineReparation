@@ -11,13 +11,14 @@ class ReparationController < ApplicationController
   def sublocation
     @sublocations = Location.find(:all, :conditions => { :parentId => params[:parentId]})
   end
-  
- # def process
-  #  rp = ReparationInformation.new
-   # rp.realname = params[:realname]
-    #rp.cellphone = params[:cellphone]
-    #rp.location = params[:location]
-    #rp.problem = Problem.find(params[:problemType])
-    #rp.problemDesc = params[:problemDesc]
- # end
+
+  def processapply
+    reparation_information = ReparationInformation.new
+    reparation_information.realname = params[:realname]
+    reparation_information.cellphone = params[:cellphone]
+    reparation_information.location = params[:location]
+    reparation_information.problem_id = params[:problemType]
+    reparation_information.problem_desc = params[:problemDesc]
+    reparation_information.save
+  end
 end

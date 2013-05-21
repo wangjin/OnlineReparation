@@ -1,4 +1,4 @@
-<form action="/reparation/process" method="post">
+<form id="submitform" method="post">
 	<intut type="hidden" name="userId" value="<%= session[:user].id %>">
 	<table align="center" style="margin-left:50px; ">
 		<tbody style="text-align: center;font-size: 13px">
@@ -28,9 +28,9 @@
 				</select></td>
 				<td>问题描述</td>
 				<td colspan="3">
-				<input id="problemDesc" type="text" name="problemDecs">
+				<input id="problemDesc" type="text" name="problemDesc">
 				</td>
-				<td><a href="">提交</a></td>
+				<td><a href="javascript:submitForm(submitform,'/reparation/processapply');">提交</a></td>
 			</tr>
 		</tbody>
 	</table>

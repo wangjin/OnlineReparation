@@ -5,6 +5,7 @@ class CreateReparationInformations < ActiveRecord::Migration
       t.string :cellphone, :limit => 11
       t.string :location, :limit => 50
       t.string :problem_desc, :limit=> 100
+      t.integer :problem_id, :limit => 3
 
       t.timestamps
     end

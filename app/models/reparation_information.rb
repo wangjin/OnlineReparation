@@ -1,4 +1,4 @@
 class ReparationInformation < ActiveRecord::Base
-  attr_accessible :cellphone, :location, :problem_desc, :realname
-  blongs_to :problem
+  attr_accessible :cellphone, :location, :problem_desc, :problem_id, :realname
+  belongs_to :problem
 end
