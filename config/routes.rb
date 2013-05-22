@@ -1,20 +1,18 @@
 OnlineReparation::Application.routes.draw do
 
-  get "reparation/index"
+  get "reparation/reparationindex"
   
   get "reparation/sublocation"
 
-  get "managercenter/index"
+  get "managercenter/managerindex"
 
   get "managercenter/materials"
-
-  get "managercenter/accendants"
 
   get "managercenter/messages"
 
   get "managercenter/informations"
 
-  get "membercenter/index"
+  get "membercenter/memberindex"
   
   get "welcome/index"
   
@@ -32,6 +30,8 @@ OnlineReparation::Application.routes.draw do
   match "register" => "register#register"
   match "toregister" => "register#toregister"
   match "reparation/processapply" => "reparation#processapply"
+  match "managercenter/save_accendant" => "managercenter#save_accendant"
+  match "managercenter/accendants" => "managercenter#accendants"
 
   resources :users, :reparation_informations
   

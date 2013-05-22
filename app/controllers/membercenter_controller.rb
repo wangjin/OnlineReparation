@@ -1,4 +1,4 @@
 class MembercenterController < ApplicationController
-  def index
+  def memberindex
   end
 end

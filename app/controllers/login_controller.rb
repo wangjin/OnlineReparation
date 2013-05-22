@@ -14,7 +14,13 @@ class LoginController < ApplicationController
       if user
         session[:user] = user
         if user.usertype.to_i < 3 # 0 超级管理员 1 后勤管理员 2 维修人员
-          redirect_to :controller => 'managercenter', :action => 'index'
+          puts session[:query_string]
+          if session[:query_string]
+            redirect_to session[:query_string]
+            session[:query_string] = nil
+          else            
+          redirect_to :controller => 'managercenter', :action => ' managerindex'
+          end
         else
           redirect_to :root
         end

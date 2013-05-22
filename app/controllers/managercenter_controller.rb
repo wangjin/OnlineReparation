@@ -1,5 +1,5 @@
 class ManagercenterController < ApplicationController
-  def index
+  def managerindex
   end
 
   def materials
@@ -13,5 +13,13 @@ class ManagercenterController < ApplicationController
   end
 
   def informations
+  end
+  
+  def save_accendant
+    user = User.find(params[:id])
+    user.realname = params[:realname]
+    user.cellphone = params[:cellphone] 
+    user.email = params[:email]
+    user.save
   end
 end

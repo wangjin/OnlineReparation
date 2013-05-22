@@ -6,7 +6,7 @@
 			<div class="container">
 				<ul class="tabs">
 					<li>
-						<%= link_to '报修处理',{:action => 'index'}, :class => 'js-selected-navigation-item' %>
+						<%= link_to '报修处理',{:action => 'managerindex'}, :class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
 						<%= link_to '信息管理',{:action => 'messages'},:class => 'js-selected-navigation-item' %>
@@ -24,10 +24,9 @@
 					<% end %>
 				</ul>
 			</div>
-		</div><!-- /.pagehead -->
+		</div>
 		<div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container="">
 
-			<!-- tree commit key: views10/v8/tree:v21:9074d5d4514048221a6bb1018f7955c9 -->
 
 			<div id="slider">
 				<div class="frame-meta">
@@ -35,7 +34,7 @@
 
 					<a href="/wangjin252/OnlineReparation/find/master" class="js-slide-to" data-hotkey="t" style="display:none">Show File Finder</a>
 
-				</div><!-- ./.frame-meta -->
+				</div>
 
 				<div class="frames" style="min-height: 315px;">
 					<div class="frame">
@@ -47,6 +46,7 @@
 									<a class="message">填写报修信息</a>
 
 								</p>
+								<p><a href="javascript:newuser();">添加报修人员</a></p>
 							</div>
 							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
 								<tbody class="tree-entries js-deferred-content" style="text-align: center">
@@ -60,9 +60,9 @@
 									<% @users.each do |user| %>
 									<tr id="<%= user.id%>_tr">
 										<td class="icon" style="width: 40px"><%= user.id%></td>
-										<td class="content" style="width: 200px"><%= user.realname%></td>
-										<td class="age" style="width: 200px"><%= user.cellphone%></td>
-										<td class="age" style="width: 300px"><%= user.email%></td>
+										<td class="content" style="width: 200px" id="<%= user.id%>_realname_td"><%= user.realname%></td>
+										<td class="age" style="width: 200px"id="<%= user.id%>_cellphone_td"><%= user.cellphone%></td>
+										<td class="age" style="width: 300px"id="<%= user.id%>_email_td"><%= user.email%></td>
 										<td><a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_edit">编辑</a> 删除</td>
 									</tr>
 									<tr id="<%= user.id%>_show" style="display: none;">
@@ -70,17 +70,30 @@
 										<td class="content">
 										<input type="text" value="<%= user.realname%>" id="<%= user.id%>_realname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
 										</td>
-										<td class="age">
+										<td class="age" >
 										<input type="text" value="<%= user.cellphone%>" id="<%= user.id%>_cellphone"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
 										</td>
-										<td class="age">
+										<td class="age" >
 										<input type="text" value="<%= user.email%>" id="<%= user.id%>_email"  style="min-height: 0px;height: 25px;width: 250px;text-align: center;">
 										</td>
 										<td><a href="javascript:save(<%= user.id%>)" id="<%= user.id%>_save">保存</a></td>
 									</tr>
 									<% end %>
+									<tr id="new_user" style="display: none;">
+										<td class="icon"></td>
+										<td class="content">
+										<input type="text" id="new_realname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" id="new_cellphone"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" id="new_email"  style="min-height: 0px;height: 25px;width: 250px;text-align: center;">
+										</td>
+										<td><a href="javascript:add()">添加</a></td>
+									</tr>
 									<tr>
-										<td colspan="4"><%= paginate @users, :window => 3%></td>
+										<td colspan="5"><%= paginate @users, :window => 3%></td>
 
 									</tr>
 								</tbody>

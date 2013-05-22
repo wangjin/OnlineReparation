@@ -1,5 +1,5 @@
 class ReparationController < ApplicationController
-  def index
+  def reparationindex
     @reparation_information = ReparationInformation.new
     @locations = Location.find(:all, :conditions => { :parentId => -1 })
     @problems = Problem.find(:all)
@@ -17,4 +17,5 @@ class ReparationController < ApplicationController
     reparation_information = ReparationInformation.new(params[:reparation_information])
     reparation_information.save
   end
+  
 end

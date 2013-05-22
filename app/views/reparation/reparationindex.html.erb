@@ -14,16 +14,16 @@
 					</li>
 					<% if session[:user].usertype.to_i < 4 %>
 					<li>
-						<%= link_to '管理中心', {:controller => 'managercenter', :action => 'index'}, :class => 'name'%>
+						<%= link_to '管理中心', {:controller => 'managercenter', :action => 'managerindex'}, :class => 'name'%>
 					</li>
 					<% end %>
 					<% if session[:user].usertype.to_i == 4 %>
 					<li>
-						<a href="/reparation/index" id="new_repo" class="tooltipped downwards" original-title="Create a new reparation"> <span class="octicon octicon-repo-create"></span> </a>
+						<a href="/reparation/reparationindex" id="new_repo" class="tooltipped downwards" original-title="Create a new reparation"> <span class="octicon octicon-repo-create"></span> </a>
 					</li>
 					<% end %>
 					<li>
-						<a href="/membercenter/index" id="account_settings" class="tooltipped downwards" original-title="Account settings "> <span class="octicon octicon-tools"></span> </a>
+						<a href="/membercenter/memberindex" id="account_settings" class="tooltipped downwards" original-title="Account settings "> <span class="octicon octicon-tools"></span> </a>
 					</li>
 					<li>
 						<a class="tooltipped downwards" href="/logout" data-method="post" id="logout" original-title="Sign out"> <span class="octicon octicon-log-out"></span> </a>
