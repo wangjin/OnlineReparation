@@ -1,4 +1,17 @@
 <%= form_for @reparation_information, :url => url_for(:controller =>'reparation', :action => 'processapply') do |f| %>
+	<% if @reparation_information.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@reparation_information.errors.count, "error") %> prohibited this reparation_information from being saved:</h2>
+		
+			<ul>
+				<% @reparation_information.errors.full_messages.each do |msg| %>
+				<li>
+					<%= msg %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 <table align="center" style="margin-left:50px; ">
 	<tbody style="text-align: center;font-size: 13px">
 		<tr>

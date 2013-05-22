@@ -2,8 +2,6 @@ OnlineReparation::Application.routes.draw do
 
   get "reparation/index"
   
-  match "reparation/processapply" => "reparation#processapply"
-  
   get "reparation/sublocation"
 
   get "managercenter/index"
@@ -33,6 +31,7 @@ OnlineReparation::Application.routes.draw do
   match "logout" => "login#logout"
   match "register" => "register#register"
   match "toregister" => "register#toregister"
+  match "reparation/processapply" => "reparation#processapply"
 
   resources :users, :reparation_informations
   
