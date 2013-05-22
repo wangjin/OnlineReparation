@@ -11,8 +11,8 @@ class ManagercenterController < ApplicationController
   end
 
   def messages
-    @news = News.page(params[:page]).per(10)
-    @announcements = Announcement.page(params[:page]).per(10)
+    @news = News.order("created_at DESC").page(params[:page]).per(10)
+    @announcements = Announcement.order("created_at DESC").page(params[:page]).per(10)
   end
 
   def informations
@@ -64,5 +64,18 @@ class ManagercenterController < ApplicationController
     material.materialprice = params[:materialprice]
     material.save
   end
-
+  
+  def save_news
+    news = News.new(:news_title => params[:news_title],
+                    :news_content => params[:news_content],
+                    :user_id => session[:user].id)
+    news.save
+  end
+  
+  def save_announcement
+    announcement = Announcement.new(:announcement_title => params[:announcement_title],
+                    :announcement_content => params[:announcement_content],
+                    :user_id => session[:user].id)
+    announcement.save
+  end
 end

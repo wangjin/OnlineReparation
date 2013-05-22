@@ -55,49 +55,17 @@
 							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
 								<tbody class="tree-entries js-deferred-content" style="text-align: center">
 									<tr>
-										<td class="content"style="width: 100px">材料名称</td>
-										<td class="age"style="width: 150px">材料类别</td>
-										<td class="age"style="width: 150px">材料库存</td>
-										<td class="age"style="width: 150px">材料价格</td>
+										<td class="content"style="width: 100px">新闻名称</td>
+										<td class="age"style="width: 150px">新闻内容</td>
+										<td class="age"style="width: 150px">发布者</td>
 										<td class="age">操作</td>
 									</tr>
-									<tr id="new_material" style="display: none;">
-										<td class="content" id="new_materialname_td">
-										<input type="text" id="new_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
-										</td>
-										<td class="age"id="new_materialtype_td">
-										<input type="text" id="new_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age"id="new_materialamount_td">
-										<input type="text" id="new_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age"id="new_materialprice_td">
-										<input type="text" id="new_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td><a href="javascript:addmaterial()">添加</a>&nbsp;<a href="javascript:cancel();">取消</a></td>
-									</tr>
-									<% @news.each do |material| %>
-									<tr id="<%= material.id%>_tr">
-										<td class="content"  id="<%= material.id%>_materialname_td"><%= material.materialname%></td>
-										<td class="age" id="<%= material.id%>_materialtype_td"><%= material.materialtype%></td>
-										<td class="age" id="<%= material.id%>_materialamount_td"><%= material.materialamount%></td>
-										<td class="age" id="<%= material.id%>_materialprice_td"><%= material.materialprice%></td>
-										<td><a href="javascript:edit(<%= material.id%>)" id="<%= material.id%>_edit">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= material.id%>);">删除</a></td>
-									</tr>
-									<tr id="<%= material.id%>_show" style="display: none;">
-										<td class="content">
-										<input type="text" value="<%= material.materialname%>" id="<%= material.id%>_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
-										</td>
-										<td class="age" >
-										<input type="text" value="<%= material.materialtype%>" id="<%= material.id%>_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age" >
-										<input type="text" value="<%= material.materialamount%>" id="<%= material.id%>_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age" >
-										<input type="text" value="<%= material.materialprice%>" id="<%= material.id%>_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td><a href="javascript:save(<%= material.id%>)" id="<%= material.id%>_save">保存</a>&nbsp;<a href="javascript:cancelsave(<%= material.id%>);">取消</a></td>
+									<% @news.each do |news| %>
+									<tr >
+										<td class="content"><%= news.news_title%></td>
+										<td class="age"><%= news.news_content%></td>
+										<td class="age"><%= news.user.realname%></td>
+										<td><a href="javascript:edit(<%= news.id%>)">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= news.id%>);">删除</a></td>
 									</tr>
 									<% end %>
 
@@ -120,49 +88,17 @@
 							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
 								<tbody class="tree-entries js-deferred-content" style="text-align: center">
 									<tr>
-										<td class="content"style="width: 100px">材料名称</td>
-										<td class="age"style="width: 150px">材料类别</td>
-										<td class="age"style="width: 150px">材料库存</td>
-										<td class="age"style="width: 150px">材料价格</td>
+										<td class="content"style="width: 100px">公告名称</td>
+										<td class="age"style="width: 150px">公告内容</td>
+										<td class="age"style="width: 150px">发布者</td>
 										<td class="age">操作</td>
 									</tr>
-									<tr id="new_material" style="display: none;">
-										<td class="content" id="new_materialname_td">
-										<input type="text" id="new_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
-										</td>
-										<td class="age"id="new_materialtype_td">
-										<input type="text" id="new_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age"id="new_materialamount_td">
-										<input type="text" id="new_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age"id="new_materialprice_td">
-										<input type="text" id="new_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td><a href="javascript:addmaterial()">添加</a>&nbsp;<a href="javascript:cancel();">取消</a></td>
-									</tr>
-									<% @announcements.each do |material| %>
-									<tr id="<%= material.id%>_tr">
-										<td class="content"  id="<%= material.id%>_materialname_td"><%= material.materialname%></td>
-										<td class="age" id="<%= material.id%>_materialtype_td"><%= material.materialtype%></td>
-										<td class="age" id="<%= material.id%>_materialamount_td"><%= material.materialamount%></td>
-										<td class="age" id="<%= material.id%>_materialprice_td"><%= material.materialprice%></td>
-										<td><a href="javascript:edit(<%= material.id%>)" id="<%= material.id%>_edit">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= material.id%>);">删除</a></td>
-									</tr>
-									<tr id="<%= material.id%>_show" style="display: none;">
-										<td class="content">
-										<input type="text" value="<%= material.materialname%>" id="<%= material.id%>_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
-										</td>
-										<td class="age" >
-										<input type="text" value="<%= material.materialtype%>" id="<%= material.id%>_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age" >
-										<input type="text" value="<%= material.materialamount%>" id="<%= material.id%>_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td class="age" >
-										<input type="text" value="<%= material.materialprice%>" id="<%= material.id%>_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
-										</td>
-										<td><a href="javascript:save(<%= material.id%>)" id="<%= material.id%>_save">保存</a>&nbsp;<a href="javascript:cancelsave(<%= material.id%>);">取消</a></td>
+									<% @announcements.each do |announcement| %>
+									<tr >
+										<td class="content"><%= announcement.announcement_title%></td>
+										<td class="age"><%= announcement.announcement_content%></td>
+										<td class="age"><%= announcement.user.realname%></td>
+										<td><a href="javascript:edit(<%= announcement.id%>)">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= announcement.id%>);">删除</a></td>
 									</tr>
 									<% end %>
 
@@ -225,23 +161,43 @@
 		</div>
 	</div>
 	<div id="newnewsdiv" style="display: none;position: absolute;z-index: 10000;width: 650px;height: 400px;background-color: #f3f3f3;">
-		<div style="float: left;width: 90%">添加新闻</div><div style="float: left;width: 10%"><a href="javascript:closenewdiv('news');">X</a></div>
-		<div>
-		新闻标题
-		<br />
-		<input type="text" name="news_title" id="news_title" style="width: 400px;height: 25px;min-height: 0px">
-		<br />
-		新闻内容
-		<br />
-		<%= kindeditor_tag :news_content,'' ,{:editor_id => 'news_content'}%>
-		<div style="float: right;">
-		<a href="">添加</a>
+		<div class="commit commit-tease js-details-container">
+			添加新闻
+			<div style="float: right">
+				<a href="javascript:closenewdiv('news');">X</a>
+			</div>
 		</div>
+		<div>
+			新闻标题
+			<input type="text" name="news_title" id="news_title" style="width: 400px;height: 25px;min-height: 0px">
+			<br />
+			新闻内容
+			<br />
+			<%= kindeditor_tag :news_content,'' ,{:editor_id => 'news_content_editor'}%>
+			<div style="float: right;">
+				<a href="javascript:savenews();">添加</a>
+			</div>
 		</div>
 	</div>
 
-	<div id="newannouncementdiv" style="display: none;position: absolute;z-index: 10000;background-color: red;width: 800px;height: 600px">
-		newannouncementdiv
+	<div id="newannouncementdiv" style="display: none;position: absolute;z-index: 10000;background-color: #f3f3f3;650px;height: 400px">
+		<div class="commit commit-tease js-details-container">
+			添加公告
+			<div style="float: right">
+				<a href="javascript:closenewdiv('announcement');">X</a>
+			</div>
+		</div>
+		<div>
+			公告标题
+			<input type="text" name="announcement_title" id="announcement_title" style="width: 400px;height: 25px;min-height: 0px">
+			<br />
+			公告内容
+			<br />
+			<%= kindeditor_tag :announcement_content,'' ,{:editor_id => 'announcement_content_editor', :simple_mode => true}%>
+			<div style="float: right;">
+				<a href="javascript:saveannouncement();">添加</a>
+			</div>
+		</div>
 	</div>
 
 </div>
