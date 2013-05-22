@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522155006) do
+ActiveRecord::Schema.define(:version => 20130522165419) do
+
+  create_table "announcements", :force => true do |t|
+    t.string   "announcement_title",   :limit => 20
+    t.text     "announcement_content"
+    t.integer  "readtimes",            :limit => 8
+    t.integer  "user_id",              :limit => 8
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.integer  "parentId",     :limit => 3
@@ -28,6 +37,15 @@ ActiveRecord::Schema.define(:version => 20130522155006) do
     t.integer  "materialamount"
     t.datetime "created_at",                                                 :null => false
     t.datetime "updated_at",                                                 :null => false
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "news_title",   :limit => 20
+    t.text     "news_content"
+    t.integer  "readtimes",    :limit => 8
+    t.integer  "user_id",      :limit => 8
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "problems", :force => true do |t|
