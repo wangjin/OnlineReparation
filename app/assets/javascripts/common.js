@@ -7,7 +7,8 @@ function edit(id) {
 	$("#" + id + "_show").show("slide");
 }
 
-function cancel(id) {
+
+function cancelsave(id) {
 	$("#" + id + "_show").hide();
 	$("#" + id + "_tr").show("slide");
 }
@@ -39,6 +40,10 @@ function save(id) {
 function newuser() {
 	$("#new_user").show("slide");
 }
+function cancel() {
+	$("#new_user").hide("slide");
+}
+
 
 function adduser() {
 	username = $("#new_username").val();
@@ -59,10 +64,17 @@ function adduser() {
 		// $("#new_cellphone_td").text(cellphone);
 		// $("#new_email_td").text(email);
 		/*
-		$.get("/managercenter/accendants",{},function(result){
-					$("#replacement").html(result);
-				});*/
+		 $.get("/managercenter/accendants",{},function(result){
+		 $("#replacement").html(result);
+		 });*/
 		window.location.reload();
 	});
 }
 
+function deleteuser(id) {
+	$.get("/managercenter/delete_accendant", {
+		id : id
+	}, function() {
+		$("#"+id+"_tr").hide("slide");
+	});
+}

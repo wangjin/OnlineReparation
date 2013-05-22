@@ -34,4 +34,9 @@ class ManagercenterController < ApplicationController
                     :usertype => 2)
     user.save
   end
+  
+  def delete_accendant
+    user = User.find(params[:id])
+    user.delete
+  end
 end

@@ -1,4 +1,3 @@
-<div id="replacement">
 	<%= javascript_include_tag "common" %>
 	<div class="site clearfix">
 		<div id="site-container" class="context-loader-container" data-pjax-container="">
@@ -72,7 +71,7 @@
 											<td class="age" id="new_email_td">
 											<input type="text" id="new_email"  style="min-height: 0px;height: 25px;width: 250px;text-align: center;">
 											</td>
-											<td><a href="javascript:adduser()">添加</a></td>
+											<td><a href="javascript:adduser()">添加</a>&nbsp;<a href="javascript:cancel();">取消</a></td>
 										</tr>
 										<% @users.each do |user| %>
 										<tr id="<%= user.id%>_tr">
@@ -81,7 +80,7 @@
 											<td class="age" id="<%= user.id%>_password_td"><%= user.password%></td>
 											<td class="age" id="<%= user.id%>_cellphone_td"><%= user.cellphone%></td>
 											<td class="age" id="<%= user.id%>_email_td"><%= user.email%></td>
-											<td><a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_edit">编辑</a> 删除</td>
+											<td><a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_edit">编辑</a>&nbsp;<a href="javascript:deleteuser(<%= user.id%>);">删除</a></td>
 										</tr>
 										<tr id="<%= user.id%>_show" style="display: none;">
 											<td class="content">
@@ -99,7 +98,7 @@
 											<td class="age" >
 											<input type="text" value="<%= user.email%>" id="<%= user.id%>_email"  style="min-height: 0px;height: 25px;width: 250px;text-align: center;">
 											</td>
-											<td><a href="javascript:save(<%= user.id%>)" id="<%= user.id%>_save">保存</a></td>
+											<td><a href="javascript:save(<%= user.id%>)" id="<%= user.id%>_save">保存</a>&nbsp;<a href="javascript:cancelsave(<%= user.id%>);">取消</a></td>
 										</tr>
 										<% end %>
 
@@ -161,4 +160,3 @@
 			</div>
 		</div>
 	</div>
-</div>
