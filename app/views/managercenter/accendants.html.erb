@@ -11,7 +11,7 @@
 						<%= link_to '信息管理',{:action => 'messages'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
-						<%= link_to '信息统计',{:action => 'informations'},:class => 'js-selected-navigation-item' %>					
+						<%= link_to '信息统计',{:action => 'informations'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<% if session[:user].usertype.to_i == 0 %>
 					<li>
@@ -22,54 +22,109 @@
 					</li>
 					<% end %>
 				</ul>
-				<br/>
 			</div>
 		</div><!-- /.pagehead -->
+		<div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container="">
 
-				<div class="container">
-			<div class="columns explorecols explore">
-				<div class="main">
-					<div id="trending-repositories" class="trending-repositories context-loader-container">
-						
+			<!-- tree commit key: views10/v8/tree:v21:9074d5d4514048221a6bb1018f7955c9 -->
+
+			<div id="slider">
+				<div class="frame-meta">
+					<br />
+
+					<a href="/wangjin252/OnlineReparation/find/master" class="js-slide-to" data-hotkey="t" style="display:none">Show File Finder</a>
+
+				</div><!-- ./.frame-meta -->
+
+				<div class="frames" style="min-height: 315px;">
+					<div class="frame">
+
+						<div class="bubble tree-browser-wrapper">
+
+							<div class="commit commit-tease js-details-container">
+								<p class="commit-title ">
+									<a class="message">填写报修信息</a>
+
+								</p>
+							</div>
+							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
+								<tbody class="tree-entries js-deferred-content" style="text-align: center">
+									<tr>
+										<td class="icon">编号</td>
+										<td class="content">姓名</td>
+										<td class="age">联系电话</td>
+										<td class="age">电子邮件</td>
+										<td class="age">操作</td>
+									</tr>
+									<% @users.each do |user| %>
+									<tr id="<%= user.id%>_tr">
+										<td class="icon"><%= user.id%></td>
+										<td class="content"><%= user.realname%></td>
+										<td class="age"><%= user.cellphone%></td>
+										<td class="age"><%= user.email%></td>
+										<td> <a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_edit">编辑</a> 删除</td>
+									</tr>
+									<tr id="<%= user.id%>_edit">
+										<td class="icon"><input type="text" value="<%= user.id%>"></td>
+										<td class="content"><input type="text" value="<%= user.realname%>"></td>
+										<td class="age"><input type="text" value="<%= user.cellphone%>"></td>
+										<td class="age"><input type="text" value="<%= user.email%>"></td>
+										<td> <a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_save">保存</a></td>
+									</tr>
+									<% end %>
+<tr>
+										<td colspan="4"><%= paginate @users, :window => 3%></td>
+										
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+
+					</div>
 				</div>
-			</div><!-- /.columns.explorecols -->
+				<br style="clear:both;">
+
+				<br style="clear:both;">
+
+				<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
+					<img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" height="64" width="64">
+				</div>
+
+			</div>
+
 		</div>
+		<!-- footer -->
+		<div id="footer">
+			<div class="container clearfix">
+				<hr class="footer-divider">
 
-	</div>
-	<div class="modal-backdrop"></div>
-</div>
-</div><!-- end of wrapper - hack for sticky footer -->
+				<p class="right">
+					© 2013 <span title="0.04586s from fe2.rs.github.com">WangJin</span>&nbsp;All rights reserved.
+				</p>
+				<a class="left" href="https://github.com/"> <span class="mega-octicon octicon-mark-github"></span> </a>
+				<ul id="legal">
+					<li>
+						<a href="https://github.com/site/terms">Terms of Service</a>
+					</li>
+					<li>
+						<a href="https://github.com/site/privacy">Privacy</a>
+					</li>
+					<li>
+						<a href="https://github.com/security">Security</a>
+					</li>
+				</ul>
+			</div><!-- /.container -->
+		</div><!-- /.#footer -->
 
-<!-- footer -->
-<div id="footer">
-	<div class="container clearfix">
-		<hr class="footer-divider">
-
-		<p class="right">
-© 2013 <span title="0.04586s from fe2.rs.github.com">WangJin</span>&nbsp;All rights reserved.		</p>
-		<a class="left" href="https://github.com/"> <span class="mega-octicon octicon-mark-github"></span> </a>
-		<ul id="legal">
-			<li>
-				<a href="https://github.com/site/terms">Terms of Service</a>
-			</li>
-			<li>
-				<a href="https://github.com/site/privacy">Privacy</a>
-			</li>
-			<li>
-				<a href="https://github.com/security">Security</a>
-			</li>
-		</ul>
-	</div><!-- /.container -->
-</div><!-- /.#footer -->
-
-<div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
-	<div class="fullscreen-container js-fullscreen-container">
-		<div class="textarea-wrap">
-			<textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+		<div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+			<div class="fullscreen-container js-fullscreen-container">
+				<div class="textarea-wrap">
+					<textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+				</div>
+			</div>
+			<div class="fullscreen-sidebar">
+				<a href="https://github.com/explore#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" original-title="Exit Zen Mode"> <span class="mega-octicon octicon-screen-normal"></span> </a>
+				<a href="https://github.com/explore#" class="theme-switcher js-theme-switcher tooltipped leftwards" original-title="Switch themes"> <span class="octicon octicon-color-mode"></span> </a>
+			</div>
 		</div>
-	</div>
-	<div class="fullscreen-sidebar">
-		<a href="https://github.com/explore#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" original-title="Exit Zen Mode"> <span class="mega-octicon octicon-screen-normal"></span> </a>
-		<a href="https://github.com/explore#" class="theme-switcher js-theme-switcher tooltipped leftwards" original-title="Switch themes"> <span class="octicon octicon-color-mode"></span> </a>
-	</div>
-</div>

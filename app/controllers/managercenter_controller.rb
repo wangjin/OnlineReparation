@@ -6,6 +6,7 @@ class ManagercenterController < ApplicationController
   end
 
   def accendants
+    @users = User.where(:usertype => 2).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def messages

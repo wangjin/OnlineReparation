@@ -16,7 +16,7 @@
 	<tbody style="text-align: center;font-size: 13px">
 		<tr>
 			<td>姓名</td>
-			<td> <%= f.text_field :realname, :value => session[:user].realname %> </td>
+			<td> <%= f.text_field :realname, :value => session[:user].realname %> <%= f.hidden_field :user_id ,:value => session[:user].id %></td>
 			<td>手机号码</td>
 			<td> <%= f.text_field :cellphone, :value => session[:user].cellphone %> </td>
 			<td>地址</td>
