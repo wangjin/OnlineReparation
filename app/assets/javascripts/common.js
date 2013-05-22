@@ -40,6 +40,7 @@ function save(id) {
 function newuser() {
 	$("#new_user").show("slide");
 }
+
 function cancel() {
 	$("#new_user").hide("slide");
 }

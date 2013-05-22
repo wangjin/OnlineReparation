@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522140055) do
+ActiveRecord::Schema.define(:version => 20130522155006) do
 
   create_table "locations", :force => true do |t|
     t.integer  "parentId",     :limit => 3
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20130522140055) do
   create_table "materials", :force => true do |t|
     t.string   "materialname",   :limit => 20
     t.integer  "materialtype",   :limit => 2
-    t.decimal  "materialprice",                :precision => 5, :scale => 2
+    t.decimal  "materialprice",                :precision => 7, :scale => 2
     t.integer  "materialamount"
     t.datetime "created_at",                                                 :null => false
     t.datetime "updated_at",                                                 :null => false
