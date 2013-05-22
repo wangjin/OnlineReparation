@@ -19,7 +19,7 @@ class LoginController < ApplicationController
             redirect_to session[:query_string]
             session[:query_string] = nil
           else            
-          redirect_to :controller => 'managercenter', :action => ' managerindex'
+          redirect_to :controller => 'managercenter', :action => 'managerindex'
           end
         else
           redirect_to :root

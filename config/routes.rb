@@ -32,6 +32,7 @@ OnlineReparation::Application.routes.draw do
   match "reparation/processapply" => "reparation#processapply"
   match "managercenter/save_accendant" => "managercenter#save_accendant"
   match "managercenter/accendants" => "managercenter#accendants"
+  match "managercenter/add_accendant" => "managercenter#add_accendant"
 
   resources :users, :reparation_informations
   

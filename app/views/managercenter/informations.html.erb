@@ -11,7 +11,7 @@
 						<%= link_to '信息管理',{:action => 'messages'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
-						<%= link_to '信息统计',{:action => 'informations'},:class => 'js-selected-navigation-item selected' %>					
+						<%= link_to '信息统计',{:action => 'informations'},:class => 'js-selected-navigation-item selected' %>
 					</li>
 					<% if session[:user].usertype.to_i == 0 %>
 					<li>
@@ -29,14 +29,14 @@
 			<div class="columns explorecols explore">
 				<div class="main">
 					<div id="trending-repositories" class="trending-repositories context-loader-container">
-						
-				</div>
-			</div><!-- /.columns.explorecols -->
-		</div>
 
+					</div>
+				</div><!-- /.columns.explorecols -->
+			</div>
+
+		</div>
+		<div class="modal-backdrop"></div>
 	</div>
-	<div class="modal-backdrop"></div>
-</div>
 </div><!-- end of wrapper - hack for sticky footer -->
 
 <!-- footer -->
@@ -45,7 +45,8 @@
 		<hr class="footer-divider">
 
 		<p class="right">
-© 2013 <span title="0.04586s from fe2.rs.github.com">WangJin</span>&nbsp;All rights reserved.		</p>
+			© 2013 <span title="0.04586s from fe2.rs.github.com">WangJin</span>&nbsp;All rights reserved.
+		</p>
 		<a class="left" href="https://github.com/"> <span class="mega-octicon octicon-mark-github"></span> </a>
 		<ul id="legal">
 			<li>
