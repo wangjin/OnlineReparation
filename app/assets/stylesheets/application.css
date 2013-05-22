@@ -36,14 +36,14 @@
 	width: 120px;
 }
 
-#reparation_information_realname{
-	text-align:center;
+#reparation_information_realname {
+	text-align: center;
 	min-height: 0px;
 	height: 25px;
 	width: 80px;
 }
 #reparation_information_cellphone {
-	text-align:center;
+	text-align: center;
 	min-height: 0px;
 	height: 25px;
 	width: 100px;
@@ -54,7 +54,7 @@
 	width: 160px;
 }
 
-#reparation_information_problem_desc{
+#reparation_information_problem_desc {
 	min-height: 0px;
 	height: 25px;
 	width: 343px;

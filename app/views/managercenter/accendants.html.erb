@@ -1,3 +1,4 @@
+<%= javascript_include_tag "common" %>
 <div class="site clearfix">
 	<div id="site-container" class="context-loader-container" data-pjax-container="">
 
@@ -58,23 +59,29 @@
 									</tr>
 									<% @users.each do |user| %>
 									<tr id="<%= user.id%>_tr">
-										<td class="icon"><%= user.id%></td>
-										<td class="content"><%= user.realname%></td>
-										<td class="age"><%= user.cellphone%></td>
-										<td class="age"><%= user.email%></td>
-										<td> <a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_edit">编辑</a> 删除</td>
+										<td class="icon" style="width: 40px"><%= user.id%></td>
+										<td class="content" style="width: 200px"><%= user.realname%></td>
+										<td class="age" style="width: 200px"><%= user.cellphone%></td>
+										<td class="age" style="width: 300px"><%= user.email%></td>
+										<td><a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_edit">编辑</a> 删除</td>
 									</tr>
-									<tr id="<%= user.id%>_edit">
-										<td class="icon"><input type="text" value="<%= user.id%>"></td>
-										<td class="content"><input type="text" value="<%= user.realname%>"></td>
-										<td class="age"><input type="text" value="<%= user.cellphone%>"></td>
-										<td class="age"><input type="text" value="<%= user.email%>"></td>
-										<td> <a href="javascript:edit(<%= user.id%>)" id="<%= user.id%>_save">保存</a></td>
+									<tr id="<%= user.id%>_show" style="display: none;">
+										<td class="icon"><%= user.id%></td>
+										<td class="content">
+										<input type="text" value="<%= user.realname%>" id="<%= user.id%>_realname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
+										</td>
+										<td class="age">
+										<input type="text" value="<%= user.cellphone%>" id="<%= user.id%>_cellphone"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age">
+										<input type="text" value="<%= user.email%>" id="<%= user.id%>_email"  style="min-height: 0px;height: 25px;width: 250px;text-align: center;">
+										</td>
+										<td><a href="javascript:save(<%= user.id%>)" id="<%= user.id%>_save">保存</a></td>
 									</tr>
 									<% end %>
-<tr>
+									<tr>
 										<td colspan="4"><%= paginate @users, :window => 3%></td>
-										
+
 									</tr>
 								</tbody>
 
