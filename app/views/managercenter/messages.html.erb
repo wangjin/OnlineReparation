@@ -1,3 +1,4 @@
+<%= javascript_include_tag "material" %>
 <div class="site clearfix">
 	<div id="site-container" class="context-loader-container" data-pjax-container="">
 
@@ -22,55 +23,203 @@
 					</li>
 					<% end %>
 				</ul>
-				<br/>
+				<div data-pjax="">
+					<div class="tabnav">
+						<ul class="tabnav-tabs">
+							<li>
+								<a href="###" class="js-selected-navigation-item tabnav-tab">新闻管理</a>
+							</li>
+							<li>
+								<a href="###" class="js-selected-navigation-item tabnav-tab">公告管理</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-		</div><!-- /.pagehead -->
+		</div>
+		<div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container="">
 
-		<div class="container">
-			<div class="columns explorecols explore">
-				<div class="main">
-					<div id="trending-repositories" class="trending-repositories context-loader-container">
+			<div id="slider">
+				<br />
+				<div class="frames" style="min-height: 315px;">
+					<div class="frame">
+
+						<div class="bubble tree-browser-wrapper" id="newsdiv">
+
+							<div class="commit commit-tease js-details-container">
+								<p>
+									<a href="javascript:newmaterial();">添加材料</a>
+								</p>
+							</div>
+							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
+								<tbody class="tree-entries js-deferred-content" style="text-align: center">
+									<tr>
+										<td class="content"style="width: 100px">材料名称</td>
+										<td class="age"style="width: 150px">材料类别</td>
+										<td class="age"style="width: 150px">材料库存</td>
+										<td class="age"style="width: 150px">材料价格</td>
+										<td class="age">操作</td>
+									</tr>
+									<tr id="new_material" style="display: none;">
+										<td class="content" id="new_materialname_td">
+										<input type="text" id="new_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
+										</td>
+										<td class="age"id="new_materialtype_td">
+										<input type="text" id="new_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age"id="new_materialamount_td">
+										<input type="text" id="new_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age"id="new_materialprice_td">
+										<input type="text" id="new_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td><a href="javascript:addmaterial()">添加</a>&nbsp;<a href="javascript:cancel();">取消</a></td>
+									</tr>
+									<% @news.each do |material| %>
+									<tr id="<%= material.id%>_tr">
+										<td class="content"  id="<%= material.id%>_materialname_td"><%= material.materialname%></td>
+										<td class="age" id="<%= material.id%>_materialtype_td"><%= material.materialtype%></td>
+										<td class="age" id="<%= material.id%>_materialamount_td"><%= material.materialamount%></td>
+										<td class="age" id="<%= material.id%>_materialprice_td"><%= material.materialprice%></td>
+										<td><a href="javascript:edit(<%= material.id%>)" id="<%= material.id%>_edit">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= material.id%>);">删除</a></td>
+									</tr>
+									<tr id="<%= material.id%>_show" style="display: none;">
+										<td class="content">
+										<input type="text" value="<%= material.materialname%>" id="<%= material.id%>_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" value="<%= material.materialtype%>" id="<%= material.id%>_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" value="<%= material.materialamount%>" id="<%= material.id%>_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" value="<%= material.materialprice%>" id="<%= material.id%>_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td><a href="javascript:save(<%= material.id%>)" id="<%= material.id%>_save">保存</a>&nbsp;<a href="javascript:cancelsave(<%= material.id%>);">取消</a></td>
+									</tr>
+									<% end %>
+
+									<tr>
+										<td colspan="5"><%= paginate @news, :window => 2 %></td>
+
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+
+						<div class="bubble tree-browser-wrapper" id="announcementsdiv">
+
+							<div class="commit commit-tease js-details-container">
+								<p>
+									<a href="javascript:newmaterial();">添加材料</a>
+								</p>
+							</div>
+							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
+								<tbody class="tree-entries js-deferred-content" style="text-align: center">
+									<tr>
+										<td class="content"style="width: 100px">材料名称</td>
+										<td class="age"style="width: 150px">材料类别</td>
+										<td class="age"style="width: 150px">材料库存</td>
+										<td class="age"style="width: 150px">材料价格</td>
+										<td class="age">操作</td>
+									</tr>
+									<tr id="new_material" style="display: none;">
+										<td class="content" id="new_materialname_td">
+										<input type="text" id="new_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
+										</td>
+										<td class="age"id="new_materialtype_td">
+										<input type="text" id="new_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age"id="new_materialamount_td">
+										<input type="text" id="new_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age"id="new_materialprice_td">
+										<input type="text" id="new_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td><a href="javascript:addmaterial()">添加</a>&nbsp;<a href="javascript:cancel();">取消</a></td>
+									</tr>
+									<% @announcements.each do |material| %>
+									<tr id="<%= material.id%>_tr">
+										<td class="content"  id="<%= material.id%>_materialname_td"><%= material.materialname%></td>
+										<td class="age" id="<%= material.id%>_materialtype_td"><%= material.materialtype%></td>
+										<td class="age" id="<%= material.id%>_materialamount_td"><%= material.materialamount%></td>
+										<td class="age" id="<%= material.id%>_materialprice_td"><%= material.materialprice%></td>
+										<td><a href="javascript:edit(<%= material.id%>)" id="<%= material.id%>_edit">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= material.id%>);">删除</a></td>
+									</tr>
+									<tr id="<%= material.id%>_show" style="display: none;">
+										<td class="content">
+										<input type="text" value="<%= material.materialname%>" id="<%= material.id%>_materialname" style="min-height: 0px;height: 25px;width: 100px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" value="<%= material.materialtype%>" id="<%= material.id%>_materialtype"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" value="<%= material.materialamount%>" id="<%= material.id%>_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td class="age" >
+										<input type="text" value="<%= material.materialprice%>" id="<%= material.id%>_materialprice"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
+										</td>
+										<td><a href="javascript:save(<%= material.id%>)" id="<%= material.id%>_save">保存</a>&nbsp;<a href="javascript:cancelsave(<%= material.id%>);">取消</a></td>
+									</tr>
+									<% end %>
+
+									<tr>
+										<td colspan="5"><%= paginate @announcements, :window => 2 %></td>
+
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
 
 					</div>
-				</div><!-- /.columns.explorecols -->
+				</div>
+				<br style="clear:both;">
+
+				<br style="clear:both;">
+
+				<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
+					<img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" height="64" width="64">
+				</div>
+
 			</div>
 
 		</div>
-		<div class="modal-backdrop"></div>
-	</div>
-</div><!-- end of wrapper - hack for sticky footer -->
+		<!-- footer -->
+		<div id="footer">
+			<div class="container clearfix">
+				<hr class="footer-divider">
 
-<!-- footer -->
-<div id="footer">
-	<div class="container clearfix">
-		<hr class="footer-divider">
+				<p class="right">
+					© 2013 <span title="0.04586s from fe2.rs.github.com">WangJin</span>&nbsp;All rights reserved.
+				</p>
+				<a class="left" href="https://github.com/"> <span class="mega-octicon octicon-mark-github"></span> </a>
+				<ul id="legal">
+					<li>
+						<a href="https://github.com/site/terms">Terms of Service</a>
+					</li>
+					<li>
+						<a href="https://github.com/site/privacy">Privacy</a>
+					</li>
+					<li>
+						<a href="https://github.com/security">Security</a>
+					</li>
+				</ul>
+			</div><!-- /.container -->
+		</div><!-- /.#footer -->
 
-		<p class="right">
-			© 2013 <span title="0.04586s from fe2.rs.github.com">WangJin</span>&nbsp;All rights reserved.
-		</p>
-		<a class="left" href="https://github.com/"> <span class="mega-octicon octicon-mark-github"></span> </a>
-		<ul id="legal">
-			<li>
-				<a href="https://github.com/site/terms">Terms of Service</a>
-			</li>
-			<li>
-				<a href="https://github.com/site/privacy">Privacy</a>
-			</li>
-			<li>
-				<a href="https://github.com/security">Security</a>
-			</li>
-		</ul>
-	</div><!-- /.container -->
-</div><!-- /.#footer -->
-
-<div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
-	<div class="fullscreen-container js-fullscreen-container">
-		<div class="textarea-wrap">
-			<textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+		<div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+			<div class="fullscreen-container js-fullscreen-container">
+				<div class="textarea-wrap">
+					<textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+				</div>
+			</div>
+			<div class="fullscreen-sidebar">
+				<a href="https://github.com/explore#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" original-title="Exit Zen Mode"> <span class="mega-octicon octicon-screen-normal"></span> </a>
+				<a href="https://github.com/explore#" class="theme-switcher js-theme-switcher tooltipped leftwards" original-title="Switch themes"> <span class="octicon octicon-color-mode"></span> </a>
+			</div>
 		</div>
-	</div>
-	<div class="fullscreen-sidebar">
-		<a href="https://github.com/explore#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" original-title="Exit Zen Mode"> <span class="mega-octicon octicon-screen-normal"></span> </a>
-		<a href="https://github.com/explore#" class="theme-switcher js-theme-switcher tooltipped leftwards" original-title="Switch themes"> <span class="octicon octicon-color-mode"></span> </a>
 	</div>
 </div>
