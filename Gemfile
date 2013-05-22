@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 gem 'thin'
 gem 'mysql2'
 gem 'kaminari'
-
+gem 'rails_kindeditor', '~> 0.3.18'
 
 # Gems used only for assets and not required
 # in production environments by default.

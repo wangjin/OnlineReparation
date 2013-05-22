@@ -11,6 +11,8 @@ class ManagercenterController < ApplicationController
   end
 
   def messages
+    @news = News.page(params[:page]).per(10)
+    @announcements = Announcement.page(params[:page]).per(10)
   end
 
   def informations
