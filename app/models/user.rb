@@ -3,5 +3,6 @@ class User < ActiveRecord::Base
   has_many :reparation_information
   has_many :news
   has_many :announcements
+  has_many :reparation_record
 	validate :username, :presence => true
 end 

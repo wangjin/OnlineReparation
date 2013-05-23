@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522165419) do
+ActiveRecord::Schema.define(:version => 20130523065711) do
 
   create_table "announcements", :force => true do |t|
     t.string   "announcement_title",   :limit => 20
@@ -22,12 +22,27 @@ ActiveRecord::Schema.define(:version => 20130522165419) do
     t.datetime "updated_at",                         :null => false
   end
 
+  create_table "kindeditor_assets", :force => true do |t|
+    t.string   "asset"
+    t.integer  "file_size"
+    t.string   "file_type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "locations", :force => true do |t|
     t.integer  "parentId",     :limit => 3
     t.integer  "locationId",   :limit => 3
     t.string   "locationName", :limit => 15
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "material_usages", :force => true do |t|
+    t.integer  "material_id",          :limit => 8
+    t.integer  "reparation_record_id"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "materials", :force => true do |t|
@@ -63,6 +78,16 @@ ActiveRecord::Schema.define(:version => 20130522165419) do
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
     t.integer  "user_id",      :limit => 8
+  end
+
+  create_table "reparation_records", :force => true do |t|
+    t.integer  "reparation_information_id"
+    t.integer  "accendant_id",              :limit => 8
+    t.integer  "status",                    :limit => 1
+    t.integer  "evaluation",                :limit => 1
+    t.text     "evaluation_desc"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   create_table "users", :force => true do |t|

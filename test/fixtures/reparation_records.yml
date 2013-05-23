@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  reparation_information_id: 1
+  accendant_id: 1
+  status: 1
+  evaluation: 1
+  evaluation_desc: MyText
+
+two:
+  reparation_information_id: 1
+  accendant_id: 1
+  status: 1
+  evaluation: 1
+  evaluation_desc: MyText
