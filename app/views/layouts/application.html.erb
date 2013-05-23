@@ -19,12 +19,12 @@
 					<li>
 						<a href="###" class="name">欢迎：<%= session[:user].realname %></a>
 					</li>
-					<% if session[:user].usertype.to_i < 4 %>
+					<% if session[:user].usertype.to_i < 3 %>
 					<li>
 						<%= link_to '管理中心', {:controller => 'managercenter', :action => 'managerindex'}, :class => 'name'%>
 					</li>
 					<% end %>
-					<% if session[:user].usertype.to_i == 4 %>
+					<% if session[:user].usertype.to_i == 3 %>
 					<li>
 						<a href="/reparation/reparationindex" id="new_repo" class="tooltipped downwards" original-title="Create a new reparation"> <span class="octicon octicon-repo-create"></span> </a>
 					</li>
