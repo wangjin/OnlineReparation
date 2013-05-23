@@ -22,19 +22,21 @@ OnlineReparation::Application.routes.draw do
   
   get "welcome/suggestions"
 
-  get "/managercenter/add_material"
+  get "managercenter/add_material"
   
-  get "/managercenter/delete_material"
+  get "managercenter/delete_material"
   
-  get "/managercenter/save_material"
+  get "managercenter/save_material"
   
-  get "/managercenter/save_news"
+  get "managercenter/save_news"
   
-  get "/managercenter/save_announcement"
+  get "managercenter/save_announcement"
   
-  get  "/managercenter/delete_news"
+  get "managercenter/delete_news"
   
-  get "/managercenter/delete_announcement"
+  get "managercenter/delete_announcement"
+  
+  get "managercenter/send_worker"
   
   root :to => "welcome#index"
   match "login" => "login#login"

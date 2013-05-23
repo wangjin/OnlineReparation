@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523065711) do
+ActiveRecord::Schema.define(:version => 20130523181648) do
 
   create_table "announcements", :force => true do |t|
     t.string   "announcement_title",   :limit => 20
@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(:version => 20130523065711) do
     t.integer  "user_id",              :limit => 8
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
-  end
-
-  create_table "kindeditor_assets", :force => true do |t|
-    t.string   "asset"
-    t.integer  "file_size"
-    t.string   "file_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "locations", :force => true do |t|
@@ -75,19 +67,26 @@ ActiveRecord::Schema.define(:version => 20130523065711) do
     t.string   "location",     :limit => 50
     t.string   "problem_desc", :limit => 100
     t.integer  "problem_id",   :limit => 3
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.integer  "user_id",      :limit => 8
+    t.integer  "process_flag", :limit => 1,   :default => 0
+  end
+
+  create_table "reparation_record_statuses", :force => true do |t|
+    t.string   "status_name", :limit => 10
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "reparation_records", :force => true do |t|
     t.integer  "reparation_information_id"
-    t.integer  "accendant_id",              :limit => 8
-    t.integer  "status",                    :limit => 1
-    t.integer  "evaluation",                :limit => 1
+    t.integer  "user_id",                     :limit => 8
+    t.integer  "reparation_record_status_id", :limit => 1
+    t.integer  "evaluation",                  :limit => 1
     t.text     "evaluation_desc"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
   end
 
   create_table "users", :force => true do |t|

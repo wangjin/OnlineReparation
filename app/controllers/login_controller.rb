@@ -32,9 +32,8 @@ class LoginController < ApplicationController
   end
 
   def logout
-    if session[:user]
       session[:user] = nil
+      session[:query_string] = nil
       redirect_to :root
-    end
   end
 end
