@@ -115,4 +115,20 @@ class ManagercenterController < ApplicationController
     reparation_information.process_flag = 1
     reparation_information.save
   end
+  
+  def mywork
+    @reparation_records_unrepair = ReparationRecord.where(:user_id => session[:user].id, :reparation_record_status_id => 1).page(params[:page]).per(10)
+    @reparation_records_repairing = ReparationRecord.where(:user_id => session[:user].id, :reparation_record_status_id => 2).page(params[:page]).per(10)
+    @reparation_records_repaired = ReparationRecord.where(:user_id => session[:user].id, :reparation_record_status_id => 3).page(params[:page]).per(10)
+  end
+  
+  def accept_work
+    reparation_record = ReparationRecord.find(params[:id])
+    reparation_record.reparation_record_status_id = 2
+    reparation_record.save
+  end
+  
+  def repaired
+    
+  end
 end

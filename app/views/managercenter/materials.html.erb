@@ -22,6 +22,9 @@
 							<%= link_to '维修人员管理',{:action => 'accendants'},:class => 'js-selected-navigation-item' %>
 						</li>
 						<% end %>
+						<% if session[:user].usertype.to_i == 2 %>
+						<li>	<%= link_to '我的任务',{:action => 'mywork'},:class => 'js-selected-navigation-item selected' %></li>
+					<% end %>
 					</ul>
 				</div>
 			</div>

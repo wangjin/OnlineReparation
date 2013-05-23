@@ -1,5 +1,7 @@
 OnlineReparation::Application.routes.draw do
-
+  
+  get "managercenter/accept_work"
+  
   get "reparation/reparationindex"
   
   get "reparation/sublocation"
@@ -37,6 +39,8 @@ OnlineReparation::Application.routes.draw do
   get "managercenter/delete_announcement"
   
   get "managercenter/send_worker"
+  
+  get "managercenter/mywork"
   
   root :to => "welcome#index"
   match "login" => "login#login"

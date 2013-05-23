@@ -13,3 +13,13 @@ function getwork(id){
 		$("#"+id+"_reparation_information_tr").hide("slide");
 	});
 }
+
+function show_reparation_record(){
+	$("#reparation_information").hide();
+	$("#reparation_record").fadeIn(1000);
+}
+
+function show_reparation_information(){
+	$("#reparation_record").hide();
+	$("#reparation_information").fadeIn(1000);
+}
