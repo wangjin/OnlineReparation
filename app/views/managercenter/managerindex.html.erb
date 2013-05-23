@@ -61,7 +61,8 @@
 										<td class="content" id="<%= reparation_information.id%>_reparation_information_realname"><%= reparation_information.realname %></td>
 										<td class="age" id="<%= reparation_information.id%>_unprocess_content"><%= reparation_information.cellphone%></td>
 										<td class="age"><%= reparation_information.problem.problemType %></td>
-										<td><a href="javascript:editunprocess(<%= reparation_information.id%>)">编辑</a>&nbsp;<a href="javascript:deleteunprocess(<%= reparation_information.id%>);">删除</a></td>
+										<td class="age"><%= reparation_information.problem_desc %></td>
+										<td><a href="javascript:sendwork(<%= reparation_information.id%>)">派工</a>&nbsp;<a href="javascript:deleteunprocess(<%= reparation_information.id%>);">删除</a></td>
 									</tr>
 									<% end %>
 
