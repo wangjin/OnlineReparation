@@ -1,5 +1,6 @@
 class ManagercenterController < ApplicationController
   def managerindex
+    @reparation_informations = ReparationInformation.order("created_at DESC").page(params[:page]).per(10)
   end
 
   def materials

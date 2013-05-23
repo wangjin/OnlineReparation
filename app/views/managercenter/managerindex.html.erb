@@ -50,22 +50,23 @@
 							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
 								<tbody class="tree-entries js-deferred-content" style="text-align: center">
 									<tr>
-										<td class="content"style="width: 100px">新闻名称</td>
-										<td class="age"style="width: 150px">新闻内容</td>
-										<td class="age"style="width: 150px">发布者</td>
+										<td class="content"style="width: 100px">报修人</td>
+										<td class="age"style="width: 150px">联系电话</td>
+										<td class="age"style="width: 150px">问题类别</td>
+										<td class="age"style="width: 150px">问题描述</td>
 										<td class="age">操作</td>
 									</tr>
-									<% @unprocess.each do |unprocess| %>
-									<tr id="<%= unprocess.id%>_unprocess_tr">
-										<td class="content" id="<%= unprocess.id%>_unprocess_title"><%= unprocess.unprocess_title%></td>
-										<td class="age" id="<%= unprocess.id%>_unprocess_content"><%= unprocess.unprocess_content%></td>
-										<td class="age"><%= unprocess.user.realname%></td>
-										<td><a href="javascript:editunprocess(<%= unprocess.id%>)">编辑</a>&nbsp;<a href="javascript:deleteunprocess(<%= unprocess.id%>);">删除</a></td>
+									<% @reparation_informations.each do |reparation_information| %>
+									<tr id="<%= reparation_information.id%>_reparation_information_tr">
+										<td class="content" id="<%= reparation_information.id%>_reparation_information_realname"><%= reparation_information.realname %></td>
+										<td class="age" id="<%= reparation_information.id%>_unprocess_content"><%= reparation_information.cellphone%></td>
+										<td class="age"><%= reparation_information.problem.problemType %></td>
+										<td><a href="javascript:editunprocess(<%= reparation_information.id%>)">编辑</a>&nbsp;<a href="javascript:deleteunprocess(<%= reparation_information.id%>);">删除</a></td>
 									</tr>
 									<% end %>
 
 									<tr>
-										<td colspan="5"><%= paginate @unprocess, :window => 2 %></td>
+										<td colspan="5"><%= paginate @reparation_informations, :window => 2 %></td>
 
 									</tr>
 								</tbody>
@@ -73,38 +74,6 @@
 							</table>
 						</div>
 
-						<div class="bubble tree-browser-wrapper" id="processeddiv" style="display: none;">
-
-							<div class="commit commit-tease js-details-container">
-								<p>
-									<a href="javascript:shownewdiv('announcement');">添加公告</a>
-								</p>
-							</div>
-							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
-								<tbody class="tree-entries js-deferred-content" style="text-align: center">
-									<tr>
-										<td class="content"style="width: 100px">公告名称</td>
-										<td class="age"style="width: 150px">公告内容</td>
-										<td class="age"style="width: 150px">发布者</td>
-										<td class="age">操作</td>
-									</tr>
-									<% @announcements.each do |announcement| %>
-									<tr id="<%= announcement.id%>_announcement_tr">
-										<td class="content" id="<%= announcement.id%>_announcement_title"><%= announcement.announcement_title%></td>
-										<td class="age"id="<%= announcement.id%>_announcement_content"><%= announcement.announcement_content%></td>
-										<td class="age"><%= announcement.user.realname%></td>
-										<td><a href="javascript:editannouncement(<%= announcement.id%>)">编辑</a>&nbsp;<a href="javascript:deleteannouncement(<%= announcement.id%>);">删除</a></td>
-									</tr>
-									<% end %>
-
-									<tr>
-										<td colspan="5"><%= paginate @announcements, :window => 2 %></td>
-
-									</tr>
-								</tbody>
-
-							</table>
-						</div>
 
 					</div>
 				</div>
