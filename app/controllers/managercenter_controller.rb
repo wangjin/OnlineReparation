@@ -66,16 +66,34 @@ class ManagercenterController < ApplicationController
   end
   
   def save_news
-    news = News.new(:news_title => params[:news_title],
-                    :news_content => params[:news_content],
-                    :user_id => session[:user].id)
+    if params[:id] != ""
+      news = News.find(params[:id])
+    else
+      news = News.new
+    end
+    news.news_title = params[:news_title]
+    news.news_content = params[:news_content]
+    news.user_id = session[:user].id
     news.save
   end
   
   def save_announcement
-    announcement = Announcement.new(:announcement_title => params[:announcement_title],
-                    :announcement_content => params[:announcement_content],
-                    :user_id => session[:user].id)
+     if params[:id] != ""
+      announcement = Announcement.find(params[:id])
+    else
+      announcement = Announcement.new
+    end
+    announcement.announcement_title = params[:announcement_title]
+    announcement.announcement_content = params[:announcement_content]
+    announcement.user_id = session[:user].id
     announcement.save
+  end
+  
+  def delete_news
+    News.find(params[:id]).delete
+  end
+  
+  def delete_announcement
+    Announcement.find(params[:id]).delete
   end
 end

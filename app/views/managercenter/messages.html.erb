@@ -61,11 +61,11 @@
 										<td class="age">操作</td>
 									</tr>
 									<% @news.each do |news| %>
-									<tr >
-										<td class="content"><%= news.news_title%></td>
-										<td class="age"><%= news.news_content%></td>
+									<tr id="<%= news.id%>_news_tr">
+										<td class="content" id="<%= news.id%>_news_title"><%= news.news_title%></td>
+										<td class="age" id="<%= news.id%>_news_content"><%= news.news_content%></td>
 										<td class="age"><%= news.user.realname%></td>
-										<td><a href="javascript:edit(<%= news.id%>)">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= news.id%>);">删除</a></td>
+										<td><a href="javascript:editnews(<%= news.id%>)">编辑</a>&nbsp;<a href="javascript:deletenews(<%= news.id%>);">删除</a></td>
 									</tr>
 									<% end %>
 
@@ -94,11 +94,11 @@
 										<td class="age">操作</td>
 									</tr>
 									<% @announcements.each do |announcement| %>
-									<tr >
-										<td class="content"><%= announcement.announcement_title%></td>
-										<td class="age"><%= announcement.announcement_content%></td>
+									<tr id="<%= announcement.id%>_announcement_tr">
+										<td class="content" id="<%= announcement.id%>_announcement_title"><%= announcement.announcement_title%></td>
+										<td class="age"id="<%= announcement.id%>_announcement_content"><%= announcement.announcement_content%></td>
 										<td class="age"><%= announcement.user.realname%></td>
-										<td><a href="javascript:edit(<%= announcement.id%>)">编辑</a>&nbsp;<a href="javascript:deletematerial(<%= announcement.id%>);">删除</a></td>
+										<td><a href="javascript:editannouncement(<%= announcement.id%>)">编辑</a>&nbsp;<a href="javascript:deleteannouncement(<%= announcement.id%>);">删除</a></td>
 									</tr>
 									<% end %>
 
@@ -177,6 +177,7 @@
 			<div style="float: right;">
 				<a href="javascript:savenews();">添加</a>
 			</div>
+			<input type="hidden" id = "news_id_hidden">
 		</div>
 	</div>
 
@@ -197,6 +198,7 @@
 			<div style="float: right;">
 				<a href="javascript:saveannouncement();">添加</a>
 			</div>
+			<input type="hidden" id = "announcement_id_hidden">
 		</div>
 	</div>
 

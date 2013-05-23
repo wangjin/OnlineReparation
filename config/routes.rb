@@ -32,6 +32,10 @@ OnlineReparation::Application.routes.draw do
   
   get "/managercenter/save_announcement"
   
+  get  "/managercenter/delete_news"
+  
+  get "/managercenter/delete_announcement"
+  
   root :to => "welcome#index"
   match "login" => "login#login"
   match "tologin" => "login#tologin"
