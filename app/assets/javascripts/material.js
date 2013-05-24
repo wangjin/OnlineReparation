@@ -32,18 +32,18 @@ function edit(id) {
 
 function save(id) {
 	materialname = $("#"+id+"_materialname").val();
-	materialtype = $("#"+id+"_materialtype").val();
+	problem_id = $("#"+id+"_problem_id").val();
 	materialprice = $("#"+id+"_materialprice").val();
 	materialamount = $("#"+id+"_materialamount").val();
 	$.get("/managercenter/save_material", {
 		id : id,
 		materialname : materialname,
-		materialtype : materialtype,
+		problem_id : problem_id,
 		materialprice : materialprice,
 		materialamount : materialamount
 	}, function() {
 		$("#" + id + "_materialname_td").text(materialname);
-		$("#" + id + "_materialtype_td").text(materialtype);
+		$("#" + id + "_problem_id_td").text(problem_id);
 		$("#" + id + "_materialprice_td").text(materialprice);
 		$("#" + id + "_materialamount_td").text(materialamount);
 		$("#" + id + "_show").hide();

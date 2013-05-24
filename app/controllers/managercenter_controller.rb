@@ -10,7 +10,7 @@ class ManagercenterController < ApplicationController
 
   def materials
     @materials = Material.page(params[:page]).per(10)
-    @problem = Problem.find(:all)
+    @problems = Problem.find(:all)
   end
 
   def accendants
@@ -52,7 +52,7 @@ class ManagercenterController < ApplicationController
 
   def add_material
     material = Material.new(:materialname => params[:materialname],
-    :materialtype => params[:materialtype],
+    :problem_id => params[:problem_id],
     :materialprice => params[:materialprice],
     :materialamount => params[:materialamount])
     material.save
@@ -66,7 +66,7 @@ class ManagercenterController < ApplicationController
   def save_material
     material = Material.find(params[:id])
     material.materialname = params[:materialname]
-    material.materialtype = params[:materialtype]
+    material.problem_id = params[:problem_id]
     material.materialamount = params[:materialamount]
     material.materialprice = params[:materialprice]
     material.save
