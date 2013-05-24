@@ -2,7 +2,10 @@ class ManagercenterController < ApplicationController
   def managerindex
     @reparation_informations = ReparationInformation.where(:process_flag => 0).page(params[:page]).per(10)
     @accendants = User.where(:usertype => 2)
-    @reparation_records = ReparationRecord.page(params[:page]).per(10)
+    reparation_records = ReparationRecord.page(params[:page]).per(10)
+    if reparation_records != nil
+      @reparation_records = reparation_records
+    end
   end
 
   def materials
@@ -105,7 +108,7 @@ class ManagercenterController < ApplicationController
     reparation_record.reparation_information_id = params[:id]
     reparation_record.reparation_record_status_id = 1
     if params[:user_id]
-      reparation_record.user_id = params[:id]
+      reparation_record.user_id = params[:user_id]
     else
       reparation_record.user_id = session[:user].id
       reparation_record.reparation_record_status_id = 2
