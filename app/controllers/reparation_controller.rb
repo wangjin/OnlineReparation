@@ -16,6 +16,7 @@ class ReparationController < ApplicationController
   def processapply
     reparation_information = ReparationInformation.new(params[:reparation_information])
     reparation_information.save
+    redirect_to :controller => "welcome", :action => "reparations"
   end
   
 end

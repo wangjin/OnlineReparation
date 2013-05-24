@@ -1,6 +1,5 @@
 <div class="site clearfix">
 	<div id="site-container" class="context-loader-container" data-pjax-container="">
-
 		<div class="pagehead">
 			<div class="container">
 				<ul class="tabs">
@@ -11,7 +10,7 @@
 						<%= link_to '最近报修',{:action => 'reparations'},:class => 'js-selected-navigation-item selected' %>
 					</li>
 					<li>
-						<%= link_to '物品公示',{:action => 'materials'},:class => 'js-selected-navigation-item' %>					
+						<%= link_to '物品公示',{:action => 'materials'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
 						<%= link_to '投诉建议',{:action => 'suggestions'},:class => 'js-selected-navigation-item' %>
@@ -20,21 +19,63 @@
 				<br/>
 			</div>
 		</div>
+	</div>
+</div>
 
-		<div class="container">
-			<div class="columns explorecols explore">
-				<div class="main">
-					<div id="trending-repositories" class="trending-repositories context-loader-container">
-						
+
+
+<div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container="">
+	<div id="slider">
+		<div class="frames" style="min-height: 270px;">
+			<div class="frame">
+				<div class="bubble tree-browser-wrapper" id="reparation_information">
+					<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
+						<tbody class="tree-entries js-deferred-content" style="text-align: center">
+							<tr>
+								<td class="content"style="width: 80px">报修人</td>
+								<td class="age"style="width: 100px">联系电话</td>
+								<td class="age"style="width: 150px">地址</td>
+								<td class="age"style="width: 80px">问题类别</td>
+								<td class="age"style="width: 150px">问题描述</td>
+								<td class="age" style="width: 80px">维修状态</td>
+								<td class="age"style="width: 80px">维修人员</td>
+							</tr>
+							<% @reparation_informations.each do |reparation_information| %>
+							<tr id="<%= reparation_information.id%>_reparation_information_tr">
+								<td class="content"><%= reparation_information.realname %></td>
+								<td class="age"><%= reparation_information.cellphone%></td>
+								<td class="age"><%= reparation_information.location%></td>
+								<td class="age"><%= reparation_information.problem.problemType %></td>
+								<td class="age"><%= reparation_information.problem_desc %></td>
+								<% if reparation_information.process_flag == 1 %>
+								<td> <%= reparation_information.reparation_record.reparation_record_status.status_name %></td>
+								<td><%= reparation_information.reparation_record.user.realname %></td>
+								<% else%>
+								<td>受理中</td>
+								<td></td>
+								<% end %>
+
+							</tr>
+							<% end %>
+
+							<tr>
+								<td colspan="7"><%= paginate @reparation_informations, :window => 2 %></td>
+
+							</tr>
+						</tbody>
+
+					</table>
 				</div>
-			</div><!-- /.columns.explorecols -->
+			</div>
 		</div>
 
-	</div>
-	<div class="modal-backdrop"></div>
-</div>
-</div><!-- end of wrapper - hack for sticky footer -->
+		<br style="clear:both;">
 
+		<br style="clear:both;">
+
+	</div>
+
+</div>
 <!-- footer -->
 <div id="footer">
 	<div class="container clearfix">

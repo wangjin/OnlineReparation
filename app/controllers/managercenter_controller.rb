@@ -10,6 +10,7 @@ class ManagercenterController < ApplicationController
 
   def materials
     @materials = Material.page(params[:page]).per(10)
+    @problem = Problem.find(:all)
   end
 
   def accendants

@@ -5,7 +5,7 @@ function addmaterial(){
 	materialamount = $("#new_materialamount").val();
 	$.get("/managercenter/add_material", {
 		materialname : materialname,
-		materialtype : materialtype,
+		problem_id : materialtype,
 		materialprice : materialprice,
 		materialamount : materialamount
 	}, function() {

@@ -28,159 +28,52 @@
 						<h2 class="trending-heading">新闻 </h2>
 						<ol class="ranked-repositories context-loader-overlay">
 
+							<% @news.each_with_index do |news,i|%>
+							<% if i<6 %>
 							<li>
 								<ul class="repo-stats">
 									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
+										<a ><%= news.readtimes %> </a>
 									</li>
 								</ul>
 
-								<h3><a href="">标题</a></h3>
+								<h3><a href=""><%= news.news_title%></a></h3>
 
-								<p class="description">
-									内容
+								<p class="description" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+									<%= news.news_content.html_safe %>
 								</p>
 
 							</li>
-					<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>	
-							<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>
-							<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>
-							<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>	
+							<% end %>
+							<% end %>
 
 						</ol>
 
 					</div>
-					
-					
 
 				</div>
 
 				<div class="sidebar">
 					<h2 class="featured-heading">公告</h2>
 					<ul class="ranked-repositories">
-
+						<% @announcements.each_with_index do |announcement,i|%>
+						<% if i<6 %>
 						<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
+							<ul class="repo-stats">
+								<li class="watchers">
+									<a > <%= announcement.readtimes %> </a>
+								</li>
+							</ul>
 
-								<h3><a href="">标题</a></h3>
+							<h3><a href=""><%= announcement.announcement_title%></a></h3>
 
-								<p class="description">
-									内容
-								</p>
+							<p class="description">
+								<%= announcement.announcement_content.html_safe %>
+							</p>
 
-							</li>
-					<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>	
-							<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>
-							<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>
-							<li>
-								<ul class="repo-stats">
-									<li class="watchers">
-										<a > <span class="octicon octicon-star"></span> 136 </a>
-									</li>
-								</ul>
-
-								<h3><a href="">标题1</a></h3>
-
-								<p class="description">
-									内容
-								</p>
-
-							</li>
+						</li>
+						<% end %>
+						<% end %>
 
 					</ul>
 				</div>

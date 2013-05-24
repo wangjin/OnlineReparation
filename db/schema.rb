@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130523181648) do
+ActiveRecord::Schema.define(:version => 20130524070108) do
 
   create_table "announcements", :force => true do |t|
     t.string   "announcement_title",   :limit => 20
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(:version => 20130523181648) do
 
   create_table "materials", :force => true do |t|
     t.string   "materialname",   :limit => 20
-    t.integer  "materialtype",   :limit => 2
+    t.integer  "problem_id",     :limit => 2
     t.decimal  "materialprice",                :precision => 7, :scale => 2
     t.integer  "materialamount"
     t.datetime "created_at",                                                 :null => false
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(:version => 20130523181648) do
   create_table "news", :force => true do |t|
     t.string   "news_title",   :limit => 20
     t.text     "news_content"
-    t.integer  "readtimes",    :limit => 8
+    t.integer  "readtimes",    :limit => 8,  :default => 0
     t.integer  "user_id",      :limit => 8
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "problems", :force => true do |t|
@@ -88,6 +88,16 @@ ActiveRecord::Schema.define(:version => 20130523181648) do
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "username",   :limit => 20
