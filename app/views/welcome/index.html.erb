@@ -29,19 +29,18 @@
 						<ol class="ranked-repositories context-loader-overlay">
 
 							<% @news.each_with_index do |news,i|%>
-							<% if i<6 %>
-							<li>
+							<% if i < 7 %>
+							<li> 
 								<ul class="repo-stats">
+									<li><a><%= news.updated_at.strftime('%m-%d') %></a></li>
 									<li class="watchers">
 										<a ><%= news.readtimes %> </a>
 									</li>
 								</ul>
 
-								<h3><a href=""><%= news.news_title%></a></h3>
-
-								<p class="description" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
-									<%= news.news_content.html_safe %>
-								</p>
+								<div style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+									<h3 id="title"><a href=""><%= news.news_title %></a></h3>
+								</div>
 
 							</li>
 							<% end %>
@@ -57,19 +56,19 @@
 					<h2 class="featured-heading">公告</h2>
 					<ul class="ranked-repositories">
 						<% @announcements.each_with_index do |announcement,i|%>
-						<% if i<6 %>
+						<% if i < 7 %>
 						<li>
 							<ul class="repo-stats">
+								<li><a><%= announcement.updated_at.strftime('%m-%d') %></a></li>
 								<li class="watchers">
 									<a > <%= announcement.readtimes %> </a>
 								</li>
 							</ul>
 
-							<h3><a href=""><%= announcement.announcement_title%></a></h3>
 
-							<p class="description">
-								<%= announcement.announcement_content.html_safe %>
-							</p>
+							<div style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+							<h3 id="title"><a href=""><%= announcement.announcement_title%></a></h3>
+							</div>
 
 						</li>
 						<% end %>
@@ -77,7 +76,7 @@
 
 					</ul>
 				</div>
-			</div><!-- /.columns.explorecols -->
+			</div>
 		</div>
 
 	</div>

@@ -35,6 +35,7 @@ function save(id) {
 	problem_id = $("#"+id+"_problem_id").val();
 	materialprice = $("#"+id+"_materialprice").val();
 	materialamount = $("#"+id+"_materialamount").val();
+	materialtype = $("#"+problem_id+"_hidden_materialltype").val();
 	$.get("/managercenter/save_material", {
 		id : id,
 		materialname : materialname,
@@ -43,7 +44,7 @@ function save(id) {
 		materialamount : materialamount
 	}, function() {
 		$("#" + id + "_materialname_td").text(materialname);
-		$("#" + id + "_problem_id_td").text(problem_id);
+		$("#" + id + "_materialtype_td").text(materialtype);
 		$("#" + id + "_materialprice_td").text(materialprice);
 		$("#" + id + "_materialamount_td").text(materialamount);
 		$("#" + id + "_show").hide();

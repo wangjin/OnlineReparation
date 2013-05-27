@@ -87,7 +87,11 @@
 									<% @problems.each do |problem| %>
 									<option value="<%= problem.id%>"><%= problem.problemType%></option>
 									<% end %>
-								</select></td>
+								</select>
+								<% @problems.each do |problem| %>
+									<input type="hidden" id="<%= problem.id%>_hidden_materialltype" value="<%=problem.problemType %>" />
+										<% end %>
+								</td>
 								<td class="age" >
 								<input type="text" value="<%= material.materialamount%>" id="<%= material.id%>_materialamount"  style="min-height: 0px;height: 25px;width: 150px;text-align: center;">
 								</td>
