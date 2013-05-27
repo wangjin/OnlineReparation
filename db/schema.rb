@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527062725) do
+ActiveRecord::Schema.define(:version => 20130527072642) do
 
   create_table "announcements", :force => true do |t|
-    t.string   "announcement_title",   :limit => 20
+    t.string   "announcement_title",   :limit => 50
     t.text     "announcement_content"
     t.integer  "readtimes",            :limit => 8,  :default => 0
     t.integer  "user_id",              :limit => 8

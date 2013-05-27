@@ -98,8 +98,8 @@
 									</tr>
 									<% @announcements.each do |announcement| %>
 									<tr id="<%= announcement.id%>_announcement_tr">
-										<td class="content" id="<%= announcement.id%>_announcement_title"><%= announcement.announcement_title%></td>
-										<td class="age"id="<%= announcement.id%>_announcement_content"><%= announcement.announcement_content%></td>
+										<td class="content" ><p id="<%= announcement.id%>_announcement_title" style="width:200px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><%= announcement.announcement_title%></p></td>
+										<td class="age"><p id="<%= announcement.id%>_announcement_content" style="width:450px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><%= announcement.announcement_content%></p></td>
 										<td class="age"><%= announcement.user.realname%></td>
 										<td><a href="javascript:editannouncement(<%= announcement.id%>)">编辑</a>&nbsp;<a href="javascript:deleteannouncement(<%= announcement.id%>);">删除</a></td>
 									</tr>

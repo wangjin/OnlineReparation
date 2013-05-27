@@ -21,4 +21,11 @@ class WelcomeController < ApplicationController
     @news.readtimes+=1
     @news.save
   end
+  
+   def show_announcement_details
+    @announcement = Announcement.find(params[:id])
+    @announcement.readtimes+=1
+    @announcement.save
+  end
+  
 end

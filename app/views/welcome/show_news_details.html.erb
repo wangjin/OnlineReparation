@@ -33,7 +33,7 @@
 						<div id="readme" class="clearfix announce instapaper_body md">
 							<span class="name">查看新闻</span>
 							<article class="markdown-body entry-content" style="padding: 0px;">
-								<div style="text-align: center"><h3><%= @news.news_title %></h3><%= @news.updated_at %></div>
+								<div style="text-align: center"><h3><%= @news.news_title %></h3><%= @news.created_at.strftime('%F %T') %></div>
 								<div style="padding-left: 20px;padding-right:20px; "><%= @news.news_content.html_safe %></div>
 							</article>
 						</div>

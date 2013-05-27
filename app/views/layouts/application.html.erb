@@ -26,7 +26,7 @@
 					<% end %>
 					<% if session[:user].usertype.to_i == 3 %>
 					<li>
-						<a href="/reparation/reparationindex" id="new_repo" class="tooltipped downwards" original-title="Create a new reparation"> <span class="octicon octicon-repo-create"></span> </a>
+						<%= link_to '申请报修', {:controller => 'reparation', :action => 'reparationindex'}%>
 					</li>
 					<% end %>
 					<li>
