@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    @news = News.order("updated_at DESC")
-    @announcements = Announcement.order("updated_at DESC")
+    @news = News.order("created_at DESC")
+    @announcements = Announcement.order("created_at DESC")
   end
 
   def reparations
@@ -14,5 +14,11 @@ class WelcomeController < ApplicationController
 
   def materials
     @materials = Material.page(params[:page]).per(10)
+  end
+  
+  def show_news_details
+    @news = News.find(params[:id])
+    @news.readtimes+=1
+    @news.save
   end
 end

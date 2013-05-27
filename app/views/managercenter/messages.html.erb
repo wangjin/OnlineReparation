@@ -58,15 +58,15 @@
 							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
 								<tbody class="tree-entries js-deferred-content" style="text-align: center">
 									<tr>
-										<td class="content"style="width: 100px">新闻名称</td>
-										<td class="age"style="width: 150px">新闻内容</td>
-										<td class="age"style="width: 150px">发布者</td>
+										<td class="content"style="width: 200px">新闻名称</td>
+										<td class="age"style="width: 450px">新闻内容</td>
+										<td class="age"style="width: 80px">发布者</td>
 										<td class="age">操作</td>
 									</tr>
 									<% @news.each do |news| %>
 									<tr id="<%= news.id%>_news_tr">
-										<td class="content" id="<%= news.id%>_news_title"><%= news.news_title%></td>
-										<td class="age" id="<%= news.id%>_news_content"><%= news.news_content%></td>
+										<td class="content" ><p id="<%= news.id%>_news_title" style="width:200px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><%= news.news_title%></p></td>
+										<td class="age" ><p id="<%= news.id%>_news_content" style="width:450px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><%= news.news_content%></p></td>
 										<td class="age"><%= news.user.realname%></td>
 										<td><a href="javascript:editnews(<%= news.id%>)">编辑</a>&nbsp;<a href="javascript:deletenews(<%= news.id%>);">删除</a></td>
 									</tr>
@@ -128,40 +128,7 @@
 			</div>
 
 		</div>
-		<!-- footer -->
-		<div id="footer">
-			<div class="container clearfix">
-				<hr class="footer-divider">
 
-				<p class="right">
-					© 2013 <span title="0.04586s from fe2.rs.github.com">WangJin</span>&nbsp;All rights reserved.
-				</p>
-				<a class="left" href="https://github.com/"> <span class="mega-octicon octicon-mark-github"></span> </a>
-				<ul id="legal">
-					<li>
-						<a href="https://github.com/site/terms">Terms of Service</a>
-					</li>
-					<li>
-						<a href="https://github.com/site/privacy">Privacy</a>
-					</li>
-					<li>
-						<a href="https://github.com/security">Security</a>
-					</li>
-				</ul>
-			</div><!-- /.container -->
-		</div><!-- /.#footer -->
-
-		<div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
-			<div class="fullscreen-container js-fullscreen-container">
-				<div class="textarea-wrap">
-					<textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
-				</div>
-			</div>
-			<div class="fullscreen-sidebar">
-				<a href="https://github.com/explore#" class="exit-fullscreen js-exit-fullscreen tooltipped leftwards" original-title="Exit Zen Mode"> <span class="mega-octicon octicon-screen-normal"></span> </a>
-				<a href="https://github.com/explore#" class="theme-switcher js-theme-switcher tooltipped leftwards" original-title="Switch themes"> <span class="octicon octicon-color-mode"></span> </a>
-			</div>
-		</div>
 	</div>
 	<div id="newnewsdiv" style="display: none;position: absolute;z-index: 10000;width: 650px;height: 400px;background-color: #f3f3f3;">
 		<div class="commit commit-tease js-details-container">

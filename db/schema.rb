@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527022146) do
+ActiveRecord::Schema.define(:version => 20130527062725) do
 
   create_table "announcements", :force => true do |t|
     t.string   "announcement_title",   :limit => 20
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20130527022146) do
   end
 
   create_table "news", :force => true do |t|
-    t.string   "news_title",   :limit => 20
+    t.string   "news_title",   :limit => 50
     t.text     "news_content"
     t.integer  "readtimes",    :limit => 8,  :default => 0
     t.integer  "user_id",      :limit => 8

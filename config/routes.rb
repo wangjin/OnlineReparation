@@ -1,5 +1,9 @@
 OnlineReparation::Application.routes.draw do
   
+  get "/welcome/show_news_details"
+  
+  get "/welcome/show_announcement_details"
+  
   get "managercenter/accept_work"
   
   get "reparation/reparationindex"

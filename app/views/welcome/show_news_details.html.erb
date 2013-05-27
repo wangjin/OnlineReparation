@@ -1,0 +1,55 @@
+<div class="site clearfix">
+	<div id="site-container" class="context-loader-container" data-pjax-container="">
+
+		<div class="pagehead">
+			<div class="container">
+				<ul class="tabs">
+					<li>
+						<a href="/welcome/index" class="js-selected-navigation-item">新闻公告</a>
+					</li>
+					<li>
+						<a href="/welcome/reparations" class="js-selected-navigation-item">最近报修</a>
+					</li>
+					<li>
+						<a href="/welcome/materials" class="js-selected-navigation-item">物品公示</a>
+					</li>
+					<li>
+						<a href="/welcome/suggestions" class="js-selected-navigation-item">投诉建议</a>
+					</li>
+				</ul>
+				<br>
+			</div>
+		</div><!-- /.pagehead -->
+
+		<div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container="">
+
+			<!-- tree commit key: views10/v8/tree:v21:9074d5d4514048221a6bb1018f7955c9 -->
+
+			<div id="slider">
+
+
+				<div class="frames" style="min-height: 300px;">
+					<div class="frame">
+						<div id="readme" class="clearfix announce instapaper_body md">
+							<span class="name">查看新闻</span>
+							<article class="markdown-body entry-content" style="padding: 0px;">
+								<div style="text-align: center"><h3><%= @news.news_title %></h3><%= @news.updated_at %></div>
+								<div style="padding-left: 20px;padding-right:20px; "><%= @news.news_content.html_safe %></div>
+							</article>
+						</div>
+					</div>
+				</div>
+				<br style="clear:both;">
+
+				<br style="clear:both;">
+
+				<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
+					<img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" height="64" width="64">
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
