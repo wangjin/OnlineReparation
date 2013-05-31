@@ -5,7 +5,7 @@ function hidden() {
 function show(x, y) {
 	$("#location").css("left", x - 390);
 	$("#location").css("top", y - 168);
-	$("#location").show('slow');
+	$("#location").fadeIn('slide');
 }
 
 
@@ -35,8 +35,6 @@ $(document).ready(function() {
 		var address = one + " " + two
 		alert(address)
 		hidden();
-		$("#address").val(
-			one + two
-		);
+		$("#address").val(address);
 	});
 })

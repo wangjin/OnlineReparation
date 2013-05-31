@@ -10,6 +10,7 @@ class RegisterController < ApplicationController
     user.realname	=	params[:realname]
     user.cellphone =	params[:cellphone]
     user.email =	params[:email]
+    user.location = params[:location]
     user.usertype = "3"
     if user.save
       redirect_to :controller => 'login', :action => 'tologin'

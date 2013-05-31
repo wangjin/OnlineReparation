@@ -1,2 +1,39 @@
-<h1>Register</h1>
-<%= render :partial => 'form' %>
+<div class="jumbotron">
+    <div class="container">
+
+        <form accept-charset="UTF-8" action="/register/register" autocomplete="off" class="home-signup" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="HBZ6EMQHOQb41CCM2jTN2HVoknxEiOmshOkNjAZK8P8="></div>          <dl class="form">
+            <dd><input type="text" name="username" class="textfield" placeholder="用户名"></dd>
+          </dl>
+
+          <dl class="form">
+            <dd>
+              <input type="password" name="password" class="textfield" placeholder="密码" >
+            </dd>
+          </dl>
+<dl class="form">
+            <dd>
+              <input type="text" name="realname" class="textfield" placeholder="姓名">
+            </dd>
+          </dl>
+          <dl class="form">
+            <dd>
+              <input type="text" name="email" class="textfield" placeholder="电子邮件">
+            </dd>
+          </dl>
+          <dl class="form">
+            <dd>
+              <input type="text" name="cellphone" class="textfield" placeholder="手机号码">
+            </dd>
+          </dl>
+          <dl class="form">
+            <dd>
+              <input type="text" name="location" class="textfield" placeholder="地址">
+            </dd>
+          </dl>
+
+          <button class="button primary button-block" type="submit">注&nbsp;册</button>
+</form>
+      <h1 class="heading">高校后勤服务<br />网上报修平台</h1><br />
+      <p class="subheading">给您提供更方便，更快捷的报修服务。</p>
+    </div><!-- /.container -->
+  </div>
