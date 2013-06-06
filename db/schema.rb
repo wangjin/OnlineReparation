@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130527072642) do
     t.string   "problemType", :limit => 5
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+    t.integer  "problemId",   :limit => 2
   end
 
   create_table "reparation_informations", :force => true do |t|
