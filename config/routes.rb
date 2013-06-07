@@ -1,5 +1,7 @@
 OnlineReparation::Application.routes.draw do
   
+  match "membercenter/update" => "membercenter#update"
+  
   match "register/register" => "register#register"
   
   get "/welcome/show_news_details"

@@ -1,2 +1,37 @@
-<h1>Membercenter#index</h1>
-<p>Find me in app/views/membercenter/index.html.erb</p>
+<form accept-charset="UTF-8" action="/membercenter/update" method="post">
+	<div style="margin:0;padding:0;display:inline"></div>
+	<div class="site clearfix">
+		<div id="site-container" class="context-loader-container" data-pjax-container="">
+
+			<div class="auth-form">
+				<div style="margin:0;padding:0;display:inline">
+					<input name="utf8" type="hidden" value="✓">
+					<input name="authenticity_token" type="hidden" value="JmGedlGQ3evhD4g8Moy64TvKQz0lFLDv8IW8/yJzafY=">
+				</div>
+				<div class="auth-form-header">
+					<h1>个人信息</h1>
+				</div>
+				<div class="auth-form-body">
+					<label for="login_field">姓名 </label>
+					<input autocapitalize="off" autofocus="autofocus" class="input-block" id="login_field" name="realname" tabindex="1" type="text" readonly="readonly" value="<%= @user.realname%>"
+					<label for="login_field">用户名 </label>
+					<input autocapitalize="off" autofocus="autofocus" class="input-block" id="login_field" name="username" tabindex="1" type="text" value="<%= @user.username%>">
+
+					<label for="password"> 密码 </label>
+					<input autocomplete="disabled" class="input-block" id="password" name="password" tabindex="2" type="password" value="<%= @user.password%>">
+					<label for="login_field">手机号码 </label>
+					<input autocapitalize="off" autofocus="autofocus" class="input-block" id="login_field" name="cellphone" tabindex="1" type="text" value="<%= @user.cellphone%>">
+					<label for="login_field">电子邮件 </label>
+					<input autocapitalize="off" autofocus="autofocus" class="input-block" id="login_field" name="email" tabindex="1" type="text" value="<%= @user.email%>">
+					<label for="login_field">地址 </label>
+					<input autocapitalize="off" autofocus="autofocus" class="input-block" id="login_field" name="location" tabindex="1" type="text" value="<%= @user.location%>">
+
+					<input class="button" name="commit" tabindex="3" type="submit" value="修改">
+				</div>
+
+			</div>
+
+		</div>
+		<div class="modal-backdrop"></div>
+	</div>
+</form>

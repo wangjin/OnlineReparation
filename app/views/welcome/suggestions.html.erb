@@ -11,7 +11,7 @@
 						<%= link_to '最近报修',{:action => 'reparations'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
-						<%= link_to '物品公示',{:action => 'materials'},:class => 'js-selected-navigation-item' %>					
+						<%= link_to '物品公示',{:action => 'materials'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
 						<%= link_to '投诉建议',{:action => 'suggestions'},:class => 'js-selected-navigation-item selected' %>
@@ -25,210 +25,57 @@
 			<div class="columns explorecols explore">
 				<div class="main">
 					<div id="trending-repositories" class="trending-repositories context-loader-container">
-						<!--
-						<h2 class="trending-heading">新闻 <span class="times"> Today | <a href="https://github.com/explore/week">Week</a> | <a href="https://github.com/explore/month">Month</a> </span></h2>
-												<ol class="ranked-repositories context-loader-overlay">
-						
-													<li>
-														<ul class="repo-stats">
-															<li class="watchers">
-																<a href="https://github.com/dotcloud/docker/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 2,149 </a>
-															</li>
-															<li class="forks">
-																<a href="https://github.com/dotcloud/docker/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 188 </a>
-															</li>
-														</ul>
-						
-														<h3><a href="https://github.com/dotcloud">dotcloud</a> / <a href="https://github.com/dotcloud/docker">docker</a></h3>
-						
-														<p class="description">
-															Docker - the Linux container runtime
-														</p>
-						
-													</li>
-						
-													<li>
-														<ul class="repo-stats">
-															<li class="watchers">
-																<a href="https://github.com/Aaln/whit/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 71 </a>
-															</li>
-															<li class="forks">
-																<a href="https://github.com/Aaln/whit/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 7 </a>
-															</li>
-														</ul>
-						
-														<h3><a href="https://github.com/Aaln">Aaln</a> / <a href="https://github.com/Aaln/whit">whit</a></h3>
-						
-														<p class="description">
-															Whit is an open source SMS service, which allows you to query CrunchBase, Wikipedia, and several ...
-														</p>
-						
-													</li>
-						
-													<li>
-														<ul class="repo-stats">
-															<li class="watchers">
-																<a href="https://github.com/dtao/lazy.js/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 295 </a>
-															</li>
-															<li class="forks">
-																<a href="https://github.com/dtao/lazy.js/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 15 </a>
-															</li>
-														</ul>
-						
-														<h3><a href="https://github.com/dtao">dtao</a> / <a href="https://github.com/dtao/lazy.js">lazy.js</a></h3>
-						
-														<p class="description">
-															Like underscore.js, but lazier
-														</p>
-						
-													</li>
-						
-													<li>
-														<ul class="repo-stats">
-															<li class="watchers">
-																<a href="https://github.com/ebobby/tracing.js/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 179 </a>
-															</li>
-															<li class="forks">
-																<a href="https://github.com/ebobby/tracing.js/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 4 </a>
-															</li>
-														</ul>
-						
-														<h3><a href="https://github.com/ebobby">ebobby</a> / <a href="https://github.com/ebobby/tracing.js">tracing.js</a></h3>
-						
-														<p class="description">
-															A small JS library that makes it possible to trace function calls.
-														</p>
-						
-													</li>
-						
-													<li>
-														<ul class="repo-stats">
-															<li class="watchers">
-																<a href="https://github.com/FredKSchott/CoVim/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 610 </a>
-															</li>
-															<li class="forks">
-																<a href="https://github.com/FredKSchott/CoVim/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 19 </a>
-															</li>
-														</ul>
-						
-														<h3><a href="https://github.com/FredKSchott">FredKSchott</a> / <a href="https://github.com/FredKSchott/CoVim">CoVim</a></h3>
-						
-														<p class="description">
-															Collaborative Editing for Vim
-														</p>
-						
-													</li>
-						
-												</ol>
-						
-												<div class="context-loader" style="top:28px">
-													Sending Request…
-												</div>
+						<div class="frames" style="min-height: 656px;">
+							<div class="frame">
+								<div id="readme" class="clearfix announce instapaper_body md">
+									<span class="name">填写报修信息</span>
+									<article class="markdown-body entry-content">
+										<form accept-charset="UTF-8" action="/reparation/processapply" class="new_reparation_information" id="new_reparation_information" method="post">
+											<div style="margin:0;padding:0;display:inline">
+												<input name="utf8" type="hidden" value="✓">
+												<input name="authenticity_token" type="hidden" value="JmGedlGQ3evhD4g8Moy64TvKQz0lFLDv8IW8/yJzafY=">
 											</div>
-						
-										</div>
-						
-										<div class="sidebar">
-											<h2 class="featured-heading">公告</h2>
-											<ul class="ranked-repositories">
-						
-												<li>
-													<ul class="repo-stats">
-														<li class="watchers">
-															<a href="https://github.com/heygrady/scss-blend-modes/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 536 </a>
-														</li>
-														<li class="forks">
-															<a href="https://github.com/heygrady/scss-blend-modes/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 75 </a>
-														</li>
-													</ul>
-						
-													<h3><a href="https://github.com/heygrady">heygrady</a> / <a href="https://github.com/heygrady/scss-blend-modes">scss-blend-modes</a></h3>
-						
-													<p class="description">
-														Using standard color blending functions in SASS.
-													</p>
-						
-												</li>
-						
-												<li>
-													<ul class="repo-stats">
-														<li class="watchers">
-															<a href="https://github.com/libgit2/libgit2/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 1,549 </a>
-														</li>
-														<li class="forks">
-															<a href="https://github.com/libgit2/libgit2/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 373 </a>
-														</li>
-													</ul>
-						
-													<h3><a href="https://github.com/libgit2">libgit2</a> / <a href="https://github.com/libgit2/libgit2">libgit2</a></h3>
-						
-													<p class="description">
-														The Library
-													</p>
-						
-												</li>
-						
-												<li>
-													<ul class="repo-stats">
-														<li class="watchers">
-															<a href="https://github.com/mitsuhiko/flask/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 6,007 </a>
-														</li>
-														<li class="forks">
-															<a href="https://github.com/mitsuhiko/flask/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 1,166 </a>
-														</li>
-													</ul>
-						
-													<h3><a href="https://github.com/mitsuhiko">mitsuhiko</a> / <a href="https://github.com/mitsuhiko/flask">flask</a></h3>
-						
-													<p class="description">
-														A microframework based on Werkzeug, Jinja2 and good intentions
-													</p>
-						
-												</li>
-						
-												<li>
-													<ul class="repo-stats">
-														<li class="watchers">
-															<a href="https://github.com/creaktive/rainbarf/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 561 </a>
-														</li>
-														<li class="forks">
-															<a href="https://github.com/creaktive/rainbarf/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 46 </a>
-														</li>
-													</ul>
-						
-													<h3><a href="https://github.com/creaktive">creaktive</a> / <a href="https://github.com/creaktive/rainbarf">rainbarf</a></h3>
-						
-													<p class="description">
-														CPU/RAM/battery stats chart bar for tmux (and GNU screen)
-													</p>
-						
-												</li>
-						
-												<li>
-													<ul class="repo-stats">
-														<li class="watchers">
-															<a href="https://github.com/AFNetworking/AFNetworking/stargazers" title="Stargazers"> <span class="octicon octicon-star"></span> 7,139 </a>
-														</li>
-														<li class="forks">
-															<a href="https://github.com/AFNetworking/AFNetworking/network" title="Forks"> <span class="octicon octicon-git-branch"></span> 1,628 </a>
-														</li>
-													</ul>
-						
-													<h3><a href="https://github.com/AFNetworking">AFNetworking</a> / <a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a></h3>
-						
-													<p class="description">
-														A delightful iOS and OS X networking framework
-													</p>
-						
-												</li>
-						
-											</ul>-->
-						
-				</div>
-			</div><!-- /.columns.explorecols -->
-		</div>
+											<table align="center" style="margin-left:50px; ">
+												<tbody style="text-align: center;font-size: 13px">
+													<tr>
+														<td>姓名</td>
+														<td>
+														<input id="reparation_information_realname" name="suggestion_realname" size="30" type="text" value="<%= session[:user].realname%>">
+														</td>
+														<td>地址</td>
+														<td>
+														<input id="reparation_information_location" name="reparation_information[location]" size="30" type="text" value="B区男生宿舍8号楼419室">
+														</td>
+														<td></td>
+													</tr>
+													<tr>
+														<td>问题类别</td>
+														<td>
+														<select id="reparation_information_problem_id" name="reparation_information[problem_id]">
+															<option value="1">水工</option>
+															<option value="2">电工</option>
+															<option value="3">门窗</option>
+															<option value="4">橱柜</option>
+														</select></td>
+														<td>问题描述</td>
+														<td colspan="3">
+														<input id="reparation_information_problem_desc" name="reparation_information[problem_desc]" size="30" type="text">
+														</td>
+														<td><a href="javascript:submitForm(new_reparation_information);">提交</a></td>
+													</tr>
+												</tbody>
+											</table>
+										</form>
 
+									</article>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- /.columns.explorecols -->
+			</div>
+
+		</div>
+		<div class="modal-backdrop"></div>
 	</div>
-	<div class="modal-backdrop"></div>
-</div>
 </div><!-- end of wrapper - hack for sticky footer -->
