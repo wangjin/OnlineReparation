@@ -10,10 +10,10 @@
 					</li>
 					<% if session[:user].usertype.to_i < 2 %>
 					<li>
-						<%= link_to '信息管理',{:action => 'messages'},:class => 'js-selected-navigation-item' %>
+						<%= link_to '新闻公告管理',{:action => 'messages'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
-						<%= link_to '信息统计',{:action => 'informations'},:class => 'js-selected-navigation-item' %>
+						<%= link_to '投诉建议管理',{:action => 'informations'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<% end %>
 					<% if session[:user].usertype.to_i == 0 %>

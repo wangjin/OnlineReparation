@@ -73,3 +73,16 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
+
+#suggestion_email{
+	text-align: center;
+	min-height: 0px;
+	height: 25px;
+	width: 200px;
+}
+
+#suggestion_desc{
+	min-height: 0px;
+	height: 25px;
+	width: 400px;
+}

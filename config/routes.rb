@@ -4,6 +4,8 @@ OnlineReparation::Application.routes.draw do
   
   match "register/register" => "register#register"
   
+  match "/welcome/submitsuggestions" => "welcome#submitsuggestions"
+  
   get "/welcome/show_news_details"
   
   get "/welcome/show_announcement_details"
@@ -20,6 +22,8 @@ OnlineReparation::Application.routes.draw do
 
   get "managercenter/messages"
 
+  get "managercenter/repaired"
+  
   get "managercenter/informations"
 
   get "membercenter/memberindex"

@@ -1,3 +1,4 @@
+<%= javascript_include_tag "common" %>
 <div class="site clearfix">
 	<div id="site-container" class="context-loader-container" data-pjax-container="">
 
@@ -21,58 +22,73 @@
 			</div>
 		</div><!-- /.pagehead -->
 
-		<div class="container">
-			<div class="columns explorecols explore">
-				<div class="main">
-					<div id="trending-repositories" class="trending-repositories context-loader-container">
-						<div class="frames" style="min-height: 656px;">
-							<div class="frame">
-								<div id="readme" class="clearfix announce instapaper_body md">
-									<span class="name">填写报修信息</span>
-									<article class="markdown-body entry-content">
-										<form accept-charset="UTF-8" action="/reparation/processapply" class="new_reparation_information" id="new_reparation_information" method="post">
-											<div style="margin:0;padding:0;display:inline">
-												<input name="utf8" type="hidden" value="✓">
-												<input name="authenticity_token" type="hidden" value="JmGedlGQ3evhD4g8Moy64TvKQz0lFLDv8IW8/yJzafY=">
-											</div>
-											<table align="center" style="margin-left:50px; ">
-												<tbody style="text-align: center;font-size: 13px">
-													<tr>
-														<td>姓名</td>
-														<td>
-														<input id="reparation_information_realname" name="suggestion_realname" size="30" type="text" value="<%= session[:user].realname%>">
-														</td>
-														<td>地址</td>
-														<td>
-														<input id="reparation_information_location" name="reparation_information[location]" size="30" type="text" value="B区男生宿舍8号楼419室">
-														</td>
-														<td></td>
-													</tr>
-													<tr>
-														<td>问题类别</td>
-														<td>
-														<select id="reparation_information_problem_id" name="reparation_information[problem_id]">
-															<option value="1">水工</option>
-															<option value="2">电工</option>
-															<option value="3">门窗</option>
-															<option value="4">橱柜</option>
-														</select></td>
-														<td>问题描述</td>
-														<td colspan="3">
-														<input id="reparation_information_problem_desc" name="reparation_information[problem_desc]" size="30" type="text">
-														</td>
-														<td><a href="javascript:submitForm(new_reparation_information);">提交</a></td>
-													</tr>
-												</tbody>
-											</table>
-										</form>
+		<div id="js-repo-pjax-container" class="container context-loader-container" data-pjax-container="">
 
-									</article>
-								</div>
-							</div>
+			<!-- tree commit key: views10/v8/tree:v21:9074d5d4514048221a6bb1018f7955c9 -->
+
+			<div id="slider">
+				<div class="frame-meta">
+					<div class="breadcrumb">
+						<span class="bold"><span><a href="###" class="js-slide-to" data-branch="master" data-direction="back" itemscope="url"><span itemprop="title">投诉建议</span></a></span></span>
+					</div>
+					<br>
+
+				</div><!-- ./.frame-meta -->
+
+				<div class="frames" style="min-height: 406px;">
+					<div class="frame">
+						<div id="readme" class="clearfix announce instapaper_body md">
+							<span class="name">填写投诉建议</span>
+							<article class="markdown-body entry-content">
+								<form accept-charset="UTF-8" action="/welcome/submitsuggestions" class="new_reparation_information" id="new_suggestion" method="post">
+									<div style="margin:0;padding:0;display:inline">
+										<input name="utf8" type="hidden" value="✓">
+										<input name="authenticity_token" type="hidden" value="JmGedlGQ3evhD4g8Moy64TvKQz0lFLDv8IW8/yJzafY=">
+									</div>
+									<table align="center" style="margin-left:50px; ">
+										<tbody style="text-align: center;font-size: 13px">
+											<tr>
+												<td>姓名</td>
+												<td>
+												<input id="reparation_information_realname" name="realname" size="30" type="text" value="<%= session[:user].realname%>">
+												</td>
+												<td>电子邮件</td>
+												<td>
+												<input id="suggestion_email" name="email" size="100" type="text" value="<%= session[:user].email%>">
+												</td>
+												<td>投诉建议类别</td>
+												<td>
+												<select name="suggestion_type">
+													<option value="0">类别</option>
+													<option value="1">报修服务相关</option>
+													<option value="2">网站相关</option>
+													<option value="3">其他</option>
+												</select></td>
+
+											</tr>
+											<tr>
+												<td>投诉建议内容</td>
+												<td colspan="4">
+												<input id="suggestion_desc" name="suggestion_desc" size="30" type="text">
+												</td>
+												<td><a href="javascript:submitForm(new_suggestion);">提交</a></td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+
+							</article>
 						</div>
 					</div>
-				</div><!-- /.columns.explorecols -->
+				</div>
+				<br style="clear:both;">
+
+				<br style="clear:both;">
+
+				<div id="js-frame-loading-template" class="frame frame-loading large-loading-area" style="display:none;">
+					<img class="js-frame-loading-spinner" src="https://a248.e.akamai.net/assets.github.com/images/spinners/octocat-spinner-128.gif?1347543527" height="64" width="64">
+				</div>
+
 			</div>
 
 		</div>

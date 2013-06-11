@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527072642) do
+ActiveRecord::Schema.define(:version => 20130607050032) do
 
   create_table "announcements", :force => true do |t|
     t.string   "announcement_title",   :limit => 50
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20130527072642) do
     t.text     "evaluation_desc"
     t.datetime "created_at",                               :null => false
     t.datetime "updated_at",                               :null => false
+    t.integer  "material_id"
   end
 
   create_table "sessions", :force => true do |t|
@@ -99,6 +100,15 @@ ActiveRecord::Schema.define(:version => 20130527072642) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "suggestions", :force => true do |t|
+    t.string   "realname"
+    t.string   "email"
+    t.integer  "suggestion_type"
+    t.string   "suggestion_desc"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",   :limit => 20

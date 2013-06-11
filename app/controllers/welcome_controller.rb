@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   end
 
   def reparations
-    @reparation_informations = ReparationInformation.page(params[:page]).per(10)
+    @reparation_informations = ReparationInformation.order("created_at DESC").page(params[:page]).per(10)
   end
 
   def suggestions
@@ -28,4 +28,13 @@ class WelcomeController < ApplicationController
     @announcement.save
   end
   
+  def submitsuggestions
+    suggestion = Suggestion.new
+    suggestion.realname = params[:realname]
+    suggestion.email = params[:email]
+    suggestion.suggestion_type = params[:suggestion_type]
+    suggestion.suggestion_desc = params[:suggestion_desc]
+    suggestion.save
+    redirect_to :root
+  end
 end

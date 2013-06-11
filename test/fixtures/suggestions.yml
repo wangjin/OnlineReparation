@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  realname: MyString
+  email: MyString
+  suggestion_type: 1
+  suggestion_desc: MyString
+
+two:
+  realname: MyString
+  email: MyString
+  suggestion_type: 1
+  suggestion_desc: MyString

@@ -10,10 +10,10 @@
 					</li>
 					<% if session[:user].usertype.to_i < 2 %>
 					<li>
-						<%= link_to '信息管理',{:action => 'messages'},:class => 'js-selected-navigation-item' %>
+						<%= link_to '新闻公告管理',{:action => 'messages'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<li>
-						<%= link_to '信息统计',{:action => 'informations'},:class => 'js-selected-navigation-item' %>
+						<%= link_to '投诉建议管理',{:action => 'informations'},:class => 'js-selected-navigation-item' %>
 					</li>
 					<% end %>
 					<% if session[:user].usertype.to_i == 0 %>
@@ -39,7 +39,7 @@
 							<li>
 								<a href="javascript:show_reparation_record_repairing();" class="js-selected-navigation-item tabnav-tab">修理中</a>
 							</li>
-								<li>
+							<li>
 								<a href="javascript:show_reparation_record_repaired();" class="js-selected-navigation-item tabnav-tab">已修复</a>
 							</li>
 						</ul>
@@ -96,7 +96,7 @@
 										<td class="age"style="width: 150px">地址</td>
 										<td class="age"style="width: 150px">问题类别</td>
 										<td class="age"style="width: 150px">问题描述</td>
-										<td class="age">状态</td>
+										<td class="age">使用材料</td>
 										<td>操作</td>
 									</tr>
 									<% @reparation_records_repairing.each do |reparation_record| %>
@@ -106,8 +106,14 @@
 										<td class="age"><%= reparation_record.reparation_information.location%></td>
 										<td class="age"><%= reparation_record.reparation_information.problem.problemType %></td>
 										<td class="age"><%= reparation_record.reparation_information.problem_desc %></td>
-										<td><%= reparation_record.reparation_record_status.status_name %></td>
-										<td><a href="javascript:showconfirmdiv(<%= reparation_record.id %>);">确认修复</a></td>
+										<td>
+										<select name="material_id" id="<%= reparation_record.id%>_material_id">
+											<option>未使用</option>
+											<% @materials.each do |material|%>
+											<option value="<%= material.id %>"><%= material.materialname%></option>
+											<% end %>
+										</select></td>
+										<td><a href="javascript:repaired(<%= reparation_record.id %>);">确认修复</a></td>
 									</tr>
 									<% end %>
 
@@ -119,7 +125,7 @@
 
 							</table>
 						</div>
-						
+
 						<div class="bubble tree-browser-wrapper" id="reparation_record_repaired" style="display: none;">
 							<table class="tree-browser css-truncate" cellpadding="0" cellspacing="0">
 								<tbody class="tree-entries js-deferred-content" style="text-align: center">
@@ -129,8 +135,8 @@
 										<td class="age"style="width: 150px">地址</td>
 										<td class="age"style="width: 150px">问题类别</td>
 										<td class="age"style="width: 150px">问题描述</td>
+										<td class="age">使用材料</td>
 										<td>维修人员</td>
-										<td class="age">状态</td>
 									</tr>
 									<% @reparation_records_repaired.each do |reparation_record| %>
 									<tr id="<%= reparation_record.id%>_reparation_record_repaired_tr">
@@ -139,8 +145,12 @@
 										<td class="age"><%= reparation_record.reparation_information.location%></td>
 										<td class="age"><%= reparation_record.reparation_information.problem.problemType %></td>
 										<td class="age"><%= reparation_record.reparation_information.problem_desc %></td>
+										<% if reparation_record.material_id == 0%>
+										<td>未使用</td>
+										<% else%>
+										<td> <%= reparation_record.material.materialname %></td>
+										<% end %>
 										<td><%= reparation_record.user.realname %> </td>
-										<td><%= reparation_record.reparation_record_status.status_name %></td>
 									</tr>
 									<% end %>
 
@@ -168,12 +178,17 @@
 		</div>
 
 	</div>
-	
+
 	<div id="confirmdiv" class="bubble tree-browser-wrapper"  style="display: none;position: absolute;z-index: 10000;650px;height: 200px">
 		<input type="hidden" id="reparation_record_id" style="width: 200px;"/>
-		<div>材料选择<div style="float: right"><a href="javascript:closeconfirmdiv();">X</a></div></div>
+		<div>
+			材料选择
+			<div style="float: right">
+				<a href="javascript:closeconfirmdiv();">X</a>
+			</div>
+		</div>
 		<div></div>
 	</div>
-	
+
 </div>
 
